@@ -148,7 +148,6 @@ image::report-review.png[report-review]
 
 == おめでとうございます！
 
-You have now successfully begun the modernization process by assessing the current application portfolio and you identified issues and risks that will need to be considered in the next step: application analysis and code modification as part of modernization.
 以上で、現在のアプリケーションのポートフォリオを評価することでモダナイゼーションへ向けたプロセスを無事に開始し、次のステップ「モダナイゼーションの一環としてアプリケーション分析とコード修正の実施」にて検討するべき問題やリスクの特定が完了しました。
 
 ユースケースとマイグレーションパスについての詳細は、 https://developers.redhat.com/products/mta/use-cases[Migration Toolkit for Applications^]を参照ください。
