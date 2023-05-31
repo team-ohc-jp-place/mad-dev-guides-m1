@@ -40,7 +40,6 @@ ImagePullBackOff エラーのため、「Customers」の Podが Failed 状態と
 
 アプリケーションのすべてのソースコードおよびすべてのサービスの GitOps YAML Manifest は、このワークショップ向けに OpenShift クラスタでホストされている　（Git互換の）　*Gitea* リポジトリに格納されています。
 
-The problem right now is in the *customers* service:
 現在の問題となっているものは、 *Customers* サービスです。
 
 * 「Customers」サービスでは、Red Hat Virtualization 上の VM で Apache Tomcat 上で動作する古い Java コードベースを使用しています。このモジュールでは、この Java のレガシーアプリケーションの評価、分析を行い、Java コードのモダナイゼーションを実現するのに最も適した方法を学習し、その後、Red Hat JBoss Web Server の上にあるOpenShift にこのアプリケーションをデプロイします。
