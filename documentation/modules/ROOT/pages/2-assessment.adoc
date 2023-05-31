@@ -1,70 +1,71 @@
-= 2. Assessment - 25 minutes
+= 2. アセスメント – 25分
 :imagesdir: ../assets/images
 
-== Goals of this lab
+== 本演習の目標
 
-As part of Globex's digital transformation and cloud adoption initiative, the development and devops teams embarked upon a journey to modernize their existing siloed services running on virtual machines on Red Hat Virtualization and containerized applications on Red Hat OpenShift separately.
+Globexにおけるデジタルトランスフォーメーションおよびクラウド導入にあたってのイニシアチブの一環として、開発チームとDevOpsチームは、Red Hat Virtualization上の仮想マシンとRed Hat OpenShift上のコンテナ化アプリケーションで動作するサイロ化した既存サービスを個別にモダナイゼーションへ向けて対応することとしました。
 
-The goal of this lab is to assess the current application portfolio and identify potential issues and risks to implementing advanced cloud-native architectures with application modernization.
+本演習の目標は、既存アプリケーションのポートフォリオを評価し、アプリケーションモダナイゼーションのため、高度なクラウドネイティブアーキテクチャの実装に関して、潜在する問題やリスクを特定することです。
 
-== 2.1. Access the MTA Web Console
+== 2.1. MTA Web Consoleへのアクセス
 
 To start the assessment of the existing applications we will use the https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/6.0/html-single/introduction_to_the_migration_toolkit_for_applications/index[Migration Toolkit for Applications (MTA)^]. We will use _MTA_ to assess the `Customers` service based on the _Tomcat_ server on Red Hat Virtualization.
+既存アプリケーションの評価を実施するために、https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/6.0/html-single/introduction_to_the_migration_toolkit_for_applications/index[Migration Toolkit for Applications (MTA)^]を使用します。本演習では、MTAを使用して、Red Hat Virtualization上のTomcatサーバーをベースにした顧客サービスを評価します。
 
-Open a new browser to access the https://mta-mta-%USERID%.%SUBDOMAIN%[MTA Web Console^].
+新たにブラウザを開き、https://mta-mta-%USERID%.%SUBDOMAIN%[MTA Web Console^]にアクセスします。
 
-You will see existing application inventories such as *Customers*, *Orders*, *Inventory*, and more.
+アクセス後、*Customers*、*Orders*、*Inventory*　など、既存アプリケーションのインベントリ情報が表示されます。
 
 image::application-inventory.png[application inventory]
 
-**MTA Application Inventory** is the vehicle which selects applications for assessment by https://github.com/konveyor/tackle-pathfinder[Tackle Pathfinder^] and analysis by https://github.com/windup/[Windup^]. It provides users four main functions:
+**MTAのApplication Inventory**オプションは、https://github.com/konveyor/tackle-pathfinder[Tackle Pathfinder^]による評価および https://github.com/windup/[Windup^]による解析の対象となるアプリケーションを選択できます。このオプションには主に以下4つの機能があります。
 
-* Maintain a portfolio of applications.
-* Link applications to the business services they support.
-* Define interdependencies.
-* Add metadata using an extensible tagging model to describe and categorize applications in multiple dimensions.
+* アプリケーションのポートフォリオの維持
+* アプリケーションと、それをサポートするビジネスサービスのリンク
+* 相互依存関係の定義付け
+* 拡張可能なタグ付けモデルを使用したメタデータの追加、アプリケーションを多次元で記述および分類
 
-**Tackle Pathfinder** is an interactive questionnaire based tool that assesses the suitability of applications for modernization in order to deploy them into containers on an enterprise Kubernetes platform. The tool output includes:
+**Tackle Pathfinder**は、Kubernetesプラットフォーム上のコンテナにデプロイするために、アプリケーションのモダナイゼーションに対する適性を評価する対話型アンケートベースのツールです。このツールでの出力内容には以下が含まれます。
 
-* An application's suitability for containerization and Kubernetes
-* A prioritized list of associated risks (based on answers to the questionnaire)
-* An Adoption plan with the application's prioritization, business criticality and dependencies.
+* アプリケーションのコンテナ化およびKubernetesへの適合性
+* 関連するリスクの優先順位リスト（ツールからのアンケートに対する回答に基づいています。）
+* アプリケーションの優先順位、ビジネスクリティカル、依存関係が記載された実行計画。
 
 == 2.2. Controls
 
-*Controls* are a collection of entities that add value to Application Inventory and the Pathfinder assessment. They comprise _business services_, _stakeholders_, _stakeholder groups_, _job functions_, _tag types_, and _tags_.
+*Controls*は、Application InventoryおよびPathfinderの評価に付加価値を加えるエンティティの集合体です。これは、_business services_、_stakeholders_、 _stakeholder groups_、_job functions_、_tag types_、_tags_で構成されています。
 
-These controls provide useful metadata about the relationships between applications and their business stakeholders, and can be used to optimize a modernization plan across a portfolio.
+Controlは、アプリケーションとそのビジネスにおけるステークホルダーとの関係性に関する、有用なメタデータを含み、ポートフォリオ全体のモダナイゼーション計画を最適化する際にご活用いただけます。
 
-=== 2.2.1. Stakeholders
+=== 2.2.1. ステークホルダー
 
-Go to `Controls` on the left menu and you will see existing _stakeholders_ such as *Hank Scorpio* and *Homer Simpson*.
+左メニューの`Controls`に進むと、*Hank Scorpio*や*Homer Simpson*といった既存のステークホルダーが表示されます。
 
 image::mta-control-stakeholder.png[stakeholders]
 
-You can also find the existing _stakeholder groups_ such as *IT Management* and *Retail Management* for the application assessment.
+また、アプリケーションの評価については、*IT Management*や*Retail Management*など、既存の_ステークホルダーグループ_にて確認できます。
 
 image::mta-stakeholder-groups.png[stakeholder-groups]
 
 === 2.2.2. Business services
 
-Applications can be classified and grouped in multiple ways such as **business service**. We've created a business service for the legacy `Retail` applications.
+アプリケーションは、 **business service** など複数の方法で分類およびグループ化できます。レガシーな`Retail`アプリケーション向けのBusiness serviceを作成しました。
 
-Go to `Controls` on the left menu and click on _Business services_ tab. You will see existing _business services_ such as *Finance and HR* and *Retail*.
+左メニューの`Controls`から_Business services_タブをクリックすると、*Finance and HR*、*Retail*など、既存の_business services_が表示されます。
 
 image::mta-control-business-service.png[business service]
 
 == 2.3. Application inventory
 
-Let's focus on the legacy application. We have added tags that represent its technology such as `Java`, `Tomcat` and `Oracle`, and decided to add a custom tag type that allows us to identify which custom architecture libraries are used by each application.
+続いて、レガシーアプリケーションに焦点をあててみます。`Java`、`Tomcat`、`Oracle`など、どのテクノロジーかを表すタグを追加し、各アプリケーションがどのカスタムアーキテクチャライブラリを使用しているかを識別できるカスタムタグタイプを追加しました。
 
-=== 2.3.1. Confirm the Customers Application Inventory
+=== 2.3.1. 「Customers」のApplication Inventoryの確認
 
-Go to `Application inventory` on the left menu and click on `pencil` (edit) icon for the customers inventory.
+左メニューの`Application inventory`から、「Customers」のインベントリに対する`鉛筆`（編集）アイコンをクリックしてください。
 
 image::app-inventory-landing.png[app-inventory-landing]
 
-When you click on `2 more` button, it shows 5 tags.
+ボタンをさらに`2つ`クリックすると、以下5つのタグが表示されます。
 
 * Oracle
 * Java
@@ -72,82 +73,83 @@ When you click on `2 more` button, it shows 5 tags.
 * Corporate Custom Configuration Library
 * RHEL 8
 
-Click on `Cancel`.
+「Cancel」をクリックしてください。
 
-=== 2.3.2. Access the Legacy Customers Application
+=== 2.3.2. レガシーアプリケーション「Customers」へのアクセス
 
-The assessment is driven by a questionnaire and aims to determine the suitability for containerization for each application. It covers all the different areas of the *application landscape*, including the *technology*, *application lifecycle management*, and *operations*. This questionnaire allow the tool to identify and present potential risks that might prevent the application from running in containers or would require extra steps to mitigate the risk.
+評価はアンケートによって進められ、アプリケーションごとにコンテナ化の適否を判断することを目的としています。*テクノロジー*、*アプリケーションライフサイクルマネジメント*、*運用*などを含む、*アプリケーションランドスケープ*のさまざまな領域をすべてカバーしています。このアンケートによって、コンテナでのアプリケーションの実行を妨げる可能性のある潜在的なリスクや、リスクを軽減するための特別な対応が必要なリスクを、ツールが特定し提示します。
 
-One stakeholder team has already assessed the retail service to identify technical problems. However, they couldn't answer the configuration model questions during the first assessment. So they just left the answer as `Unknown` at that time.
+あるステークホルダーチームでは、技術的な問題を特定するために、すでに`retail`サービスに対する評価を実施しています。しかしながら、初回の評価では構成モデルの問題に対する回答を用意できませんでした。そのため、その時点では、回答を`不明`としていました。
 
-Today, you'll run the *second* assessment to choose the proper answer in the `cross-cutting concerns` section for the _customers_ application.
+今日は、「Customers」アプリケーション向けの`横断的な懸念事項`のセクションで適切な回答が選択できるように、*2回目*の評価を実施します。
 
-Click on `Assess`.
+`Assess`をクリックしてください。
 
 image::app-inventory-access.png[app-inventory-access]
 
-When you see *This application has already been assessed. Do you want to continue?* message, click on `Continue` to continue the assessment.
+*「This application has already been assessed. Do you want to continue?」*というメッセージが表示された場合、`Continue`をクリックして評価を続行します。
 
 image::edit-assessment.png[edit-assessment]
 
-The first step will be to select the stakeholders (_Homer Simpson_) and Stakeholder groups (_Retail Management_) involved with the assessment. Leave the default values.
+まず初めに、評価に関係するステークホルダー（_Homer Simpson_）およびステークホルダーグループ（_Retail Management_）を選定してください。初期値のまま進めてください。
 
 image::select-stakeholder.png[select-stakeholder]
 
-Click on `Next`.
+`Next`をクリックしてください。
 
-[NOTE]
+[注]
 ====
-Review the former answers in the initial assessment for each application assessment section such as `Details`, `Dependencies`, and `Observability`. You don't need to change any answers but keep clicking on `Next` button until you get into the `Application cross-cutting concerns` section.
+`Details`、`Dependencies`、`Observability`などのアプリケーション評価項目ごとに、初期評価での旧回答を確認します。回答を変更する必要はありませんが、「Application cross-cutting concerns」セクションに入るまで、`Next`ボタンをクリックし続けてください。
 ====
 
 image::app-details.png[app-details]
 
-=== 2.3.3. Application cross-cutting concerns
+=== 2.3.3. アプリケーションの横断的な懸念事項
 
-Choose the following answer for the *How is the application configured?* question. The team finally figured out that the customers application currently has multiple configuration files in different folders/directories, so answer accordingly:
+*「How is the application configured?」*という質問に対して、以下回答を選択してください。このチームは、「Customers」アプリケーションが現状、複数の設定ファイルが異なるフォルダ/ディレクトリに存在していることを最終的に突き止めたので、その状況を回答するようお願いいたします。
 
 * *Question* - How is the application configured?
 * *Answer* - `Multiple configuration files in multiple file system locations`
 
 image::app-cross-cutting-concerns.png[app-cross-cutting-concerns]
 
-Click on `Save and review`.
+「Save and review」をクリックしてください。
 
-== 2.4. Application Review
+== 2.4. アプリケーションの確認
 
-You will be presented with the review screen. It allows you to find out which risks were identified during the assessment and decide which migration strategy to follow based those risks.
+「Save」をクリック後、確認画面が表示されます。この画面では、評価においてどのようなリスクが含まれているかを確認でき、そのリスクに基づいてどのような移行戦略をとるかの意志決定ができます。
 
 image::review.png[review]
 
-Scroll down the screen to view the risks. This legacy application uses a static (fixed) discovery mechanism that is not cloud-friendly, which makes sense since it comes from a classic platform and accesses a database through a *static IP*.
+画面を下にスクロールすると、該当するリスクが表示されます。このレガシーアプリケーションは、クラウドに向かないスタティック（固定）ディスカバリーメカニズムを使用しています。これは、古典的なプラットフォームに由来しており、*固定IP*を介してデータベースにアクセスすることから、理にかなっています。
 
 image::review-high-risk.png[review-high-risk]
 
-Now that we know we will need changes in the source code to adapt the application, we can decide that the strategy will be `Refactor`.
+アプリケーションをクラウドに適応させるには、ソースコードの変更が必要であることが判明したため、その戦略を`Refactor`とします。
 
 * Proposed action: `Refactor`
 * Effort estimate: `Small`
 
-Since this is a key application in the architecture, we're going to set the criticality and priority to `10`.
+このアーキテクチャの中で重要なアプリケーションに対する対応のため、重要度を`10`、優先度を`9`に設定します。
 
 * Business criticality: `10`
 * Work priority: `9`
 
-Click on `Submit Review`.
+設定後、「Submit Review」をクリックしてください。
 
 image::submit-review.png[submit-review]
 
-At this point you have completed the 2nd assessment to update the `Application cross-cutting concerns` section. You have also identified a new `high` risk along with the external configuration references and dependencies.
+この時点で、`アプリケーションの横断的な懸念事項`セクションを更新するための、2回目の評価が完了しています。また、外部構成への参照や依存関係とともに、新たな高リスクも特定されました。
 
 image::complete-review.png[complete-review]
 
-Go to `Report` on the left menu. There you will br able to access the report details such as _Current landscape_, _Adoption candidate distribution_, _Suggested adoption plan_, and _Identified risks_.
+左メニューの`Report`をクリックしてください。クリックすると_Current landscape_、_Adoption candidate distribution_、_Suggested adoption plan_、_Identified risks_などの`レポート`の詳細を確認できます。
 
 image::report-review.png[report-review]
 
-== Congratulations!
+== おめでとうございます！
 
 You have now successfully begun the modernization process by assessing the current application portfolio and you identified issues and risks that will need to be considered in the next step: application analysis and code modification as part of modernization.
+以上で、現在のアプリケーションのポートフォリオを評価することでモダナイゼーションへ向けたプロセスを無事に開始し、次のステップ「モダナイゼーションの一環としてアプリケーション分析とコード修正の実施」にて検討するべき問題やリスクの特定が完了しました。
 
-Read more about use cases and migration paths at https://developers.redhat.com/products/mta/use-cases[Migration Toolkit for Applications^].
+ユースケースとマイグレーションパスについての詳細は、 https://developers.redhat.com/products/mta/use-cases[Migration Toolkit for Applications^]を参照ください。
