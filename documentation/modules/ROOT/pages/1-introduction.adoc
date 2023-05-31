@@ -1,21 +1,22 @@
-= 1. はじめに - 10 minutes
+= 1. はじめに - 10 分
 :imagesdir: ../assets/images
 
 A common way of speaking about migrating or modernizing workloads to the cloud has been coined as the *6 Rs framework*. This framework can be broken down as follows.
+ワークロードのクラウドへのマイグレーションやモダナイゼーションに関する一般的な表現は、*6R フレームワーク*というキーワードで呼ばれています。このフレームワークは、以下のように分解することができます。
 
 image::mod-strategies.png[Modernization Strategies]
 
-Red Hat helps our customers' application modernization journey with this approach:
+Red Hat は、このようなアプローチでお客様のアプリケーションに対するモダナイゼーションをサポートします:
 
 image::app-mod-approach.png[Modernization Approach]
 
-This module will walk you through 2 of the phases (_Assess_, _Rationalize_) as following steps:
+このモジュールでは、2つのフェーズ（_評価_、_合理化_）を以下の手順にてご説明します:
 
-* Assessment and Analysis of the legacy application using https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/6.0/html-single/introduction_to_the_migration_toolkit_for_applications/index[Migration Toolkit for Applications (MTA)^]
+* https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/6.0/html-single/introduction_to_the_migration_toolkit_for_applications/index[Migration Toolkit for Applications (MTA)^]を使用したレガシーアプリケーションの評価と分析
 
-[NOTE]
+[注]
 ====
-Migration Toolkit for Applications (MTA) accelerates large-scale application modernization efforts across hybrid cloud environments on Red Hat OpenShift. This solution provides insight throughout the adoption process, at both the portfolio and application levels: inventory, assess, analyze, and manage applications for faster migration to OpenShift via the user interface.
+Migration Toolkit for Applications（MTA）は、Red Hat OpenShift 上のハイブリッドクラウド環境における大規模なアプリケーションモダナイゼーションの取り組みを促進します。このソリューションは、採用プロセス全体においてポートフォリオレベルとアプリケーションレベルの両方で理解が得られるので、アプリケーションのインベントリー、評価、分析、および管理を行い、ユーザーインターフェイスを使用して OpenShift への移行をより短い期間で行うことができます。
 ====
 
 == 1.1. Understand the Globex Retail System Architecture
