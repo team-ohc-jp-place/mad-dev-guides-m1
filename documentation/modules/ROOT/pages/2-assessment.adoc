@@ -10,7 +10,7 @@ Globexにおけるデジタルトランスフォーメーションおよびク�
 == 2.1. MTA Web Consoleへのアクセス
 
 To start the assessment of the existing applications we will use the https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/6.0/html-single/introduction_to_the_migration_toolkit_for_applications/index[Migration Toolkit for Applications (MTA)^]. We will use _MTA_ to assess the `Customers` service based on the _Tomcat_ server on Red Hat Virtualization.
-既存アプリケーションの評価を実施するために、https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/6.0/html-single/introduction_to_the_migration_toolkit_for_applications/index[Migration Toolkit for Applications (MTA)^]を使用します。本演習では、MTAを使用して、Red Hat Virtualization上のTomcatサーバーをベースにした顧客サービスを評価します。
+既存アプリケーションの評価を実施するために、　https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/6.0/html-single/introduction_to_the_migration_toolkit_for_applications/index[Migration Toolkit for Applications (MTA)^]　を使用します。本演習では、MTAを使用して、Red Hat Virtualization上のTomcatサーバーをベースにした顧客サービスを評価します。
 
 新たにブラウザを開き、https://mta-mta-%USERID%.%SUBDOMAIN%[MTA Web Console^]にアクセスします。
 
@@ -18,14 +18,14 @@ To start the assessment of the existing applications we will use the https://acc
 
 image::application-inventory.png[application inventory]
 
-**MTAのApplication Inventory**オプションは、https://github.com/konveyor/tackle-pathfinder[Tackle Pathfinder^]による評価および https://github.com/windup/[Windup^]による解析の対象となるアプリケーションを選択できます。このオプションには主に以下4つの機能があります。
+**MTAのApplication Inventory**　オプションは、https://github.com/konveyor/tackle-pathfinder[Tackle Pathfinder^]による評価および https://github.com/windup/[Windup^]による解析の対象となるアプリケーションを選択できます。このオプションには主に以下4つの機能があります。
 
 * アプリケーションのポートフォリオの維持
 * アプリケーションと、それをサポートするビジネスサービスのリンク
 * 相互依存関係の定義付け
 * 拡張可能なタグ付けモデルを使用したメタデータの追加、アプリケーションを多次元で記述および分類
 
-**Tackle Pathfinder**は、Kubernetesプラットフォーム上のコンテナにデプロイするために、アプリケーションのモダナイゼーションに対する適性を評価する対話型アンケートベースのツールです。このツールでの出力内容には以下が含まれます。
+**Tackle Pathfinder**　は、Kubernetesプラットフォーム上のコンテナにデプロイするために、アプリケーションのモダナイゼーションに対する適性を評価する対話型アンケートベースのツールです。このツールでの出力内容には以下が含まれます。
 
 * アプリケーションのコンテナ化およびKubernetesへの適合性
 * 関連するリスクの優先順位リスト（ツールからのアンケートに対する回答に基づいています。）
@@ -33,7 +33,7 @@ image::application-inventory.png[application inventory]
 
 == 2.2. Controls
 
-*Controls*は、Application InventoryおよびPathfinderの評価に付加価値を加えるエンティティの集合体です。これは、_business services_、_stakeholders_、 _stakeholder groups_、_job functions_、_tag types_、_tags_で構成されています。
+*Controls*　は、Application InventoryおよびPathfinderの評価に付加価値を加えるエンティティの集合体です。これは、_business services_、_stakeholders_、 _stakeholder groups_、_job functions_、_tag types_、_tags_で構成されています。
 
 Controlは、アプリケーションとそのビジネスにおけるステークホルダーとの関係性に関する、有用なメタデータを含み、ポートフォリオ全体のモダナイゼーション計画を最適化する際にご活用いただけます。
 
