@@ -1,11 +1,12 @@
-= 3. Analyze - 25 minutes
+= 3. 分析 – 25分
 :imagesdir: ../assets/images
 
-== Goals of this lab
+== 本演習の目標
 
-As you have realized in the previous *assessment* exercise, you need to analyze the legacy applications in terms of identifying the actual lines of code for the modernization issues as well as estimating time and effort for the modernization project.
-
+前コースの　*アセスメント*　演習で学習したように、モダナイゼーションの問題における、実際のコード行を特定し、モダナイゼーションプロジェクトの時間と労力を見積もる必要があるため、レガシーアプリケーションを分析する必要があります。
+ 
 The goal of this exercise is to analyze the _customers_ application by scanning its source code and properties using the `Analysis` capability in MTA. Then you'll review the analysis report and get started with the actual code modification.
+本演習の目標は、MTAの　`分析`　機能を使用してソースコードとプロパティに対してスキャンを実施し、　_Customers_　のアプリケーションを分析することです。そして分析実施後、分析レポートを確認し、実際にコード修正に取り掛かります。
 
 MTA _Analysis_ is used by organizations for:
 
