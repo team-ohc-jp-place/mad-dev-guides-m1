@@ -3,173 +3,175 @@
 
 == 本演習の目標
 
-前コースの　*アセスメント*　演習で学習したように、モダナイゼーションの問題における、実際のコード行を特定し、モダナイゼーションプロジェクトの時間と労力を見積もる必要があるため、レガシーアプリケーションを分析する必要があります。
+前コースの *アセスメント* 演習で学習したように、モダナイゼーションの問題における、実際のコード行を特定し、モダナイゼーションプロジェクトの時間と労力を見積もる必要があるため、レガシーアプリケーションを分析する必要があります。
  
-The goal of this exercise is to analyze the _customers_ application by scanning its source code and properties using the `Analysis` capability in MTA. Then you'll review the analysis report and get started with the actual code modification.
 本演習の目標は、MTAの `分析` 機能を使用してソースコードとプロパティに対してスキャンを実施し、 _Customers_ のアプリケーションを分析することです。そして分析実施後、分析レポートを確認し、実際にコード修正に取り掛かります。
 
 MTA _Analysis_ is used by organizations for:
+MTAの _分析_ は以下のような場面でご活用いただけます。 
 
-* Planning and work estimation
-* Identifying migration issues and providing solutions
-* Detailed reporting
+* 計画および作業見積り
+* マイグレーションに関する問題点の洗い出しと解決策の提示
+* •	詳細な分析結果のレポート
 
-And has several capabilities such as:
+そして、以下のような機能をご利用いただけます。
 
-* Built-in rules and migration paths
-* Rule extensibility and customization
-* Ability to analyze source code or application archives
+* 組み込みルールとマイグレーションパス
+* ルールの拡張性およびカスタマイズ性
+* ソースコードやアプリケーションアーカイブに対する分析
 
-Read more about it in the https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/6.0/html-single/introduction_to_the_migration_toolkit_for_applications/index#new-mta-features_getting-started-guide[MTA Features]
+詳細については、 https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/6.0/html-single/introduction_to_the_migration_toolkit_for_applications/index#new-mta-features_getting-started-guide[MTA Features]の機能を参照ください。
 
-== 3.1. Analyze Customers Application using MTA
+== 3.1. MTAを使用した「Customers」アプリケーションの分析
 
-First, you need to _download_ or _git clone_ the `modern-app-dev` repository to your local system from your link:https://gitea.%SUBDOMAIN%/%USERID%/modern-app-dev[Gitea repository^]. If you've used GitHub before, the Gitea interface will be very familiar:
+はじめに、 link:https://gitea.%SUBDOMAIN%/%USERID%/modern-app-dev[Gitea リポジトリ^] から、 `modern-app-dev` ポジトリをローカルシステムにダウンロード、もしくはgit cloneコマンドを実行する必要があります。以前、GitHubを使用した経験がある方であれば、このGiteaのインターフェイスは、とても馴染みやすいと思います。
 
 image::gitea-repo.png[gitea-repo]
 
-[NOTE]
+[注]
 ====
-You can also log in to the Gitea repository with the following credentials.
+また、以下の認証情報でGiteaリポジトリにログインできます。
 
 * Username - `%USERID%`
 * Password - `{openshift-password}`
 ====
 
-Once you download or clone the project to your local file system, extract it and check that the `customers-tomcat.war` file exists in the *packages-mta* folder. This is the file you will upload to MTA to begin the analysis.
+プロジェクトをローカルファイルシステムにダウンロードもしくは複製後、プロジェクトの展開を行い、 *packages-mta* フォルダに `customers-tomcat.war` ファイルが存在しているかご確認ください。このファイルは、分析を実施するために、MTAにアップロードするファイルとなります。
 
-Go back to the `Application inventory` page in MTA web console. Select the `Analysis` tab.
+MTA Web Consoleの `Application inventory` ページに戻り、 `Analysis` タブを選択してください。
 
-When you click on the `Customers` application, `Analyze` button will be enabled. Then, click on *Analyze*.
+`Customers` アプリケーションを選択後、 `Analyze` ボタンが有効になりますため、こちらをクリックしてください。
 
 image::application-analysis.png[application-analysis]
 
-=== 3.1.1. Analysis mode
+=== 3.1.1. 分析モード
 
-Select `Upload local binary` in Analysis mode popup. Then, drag and drop the *customers-tomcat.war* file or Upload it from your local file system.
+分析モードのポップアップウィンドウから、 `Upload local binary` オプションを選択します。選択後、 *customers-tomcat.war* ファイルをドラッグ＆ドロップするか、ローカルファイルシステムからアップロードしてください。
 
 image::add-applications.png[Add applications]
 
-Click on `Next`.
+`Next` をクリックしてください。
 
-[NOTE]
+[注]
 ====
-Please make sure to see the following success popup message on the upper right of your screen after the upload completes. It probably will take a few seconds to complete the upload.
+アップロード完了後、画面右上に、以下のポップアップメッセージが表示されたかご確認ください。アップロード完了まで数秒かかります。
 
 image::upload-success.png[upload-success]
 ====
 
-=== 3.1.2. Set targets
+=== 3.1.2. ターゲットの設定
 
-You will now be presented with options for transformation targets. Here we will select several targets based on the technologies we are moving to:
+アップロードの正常完了後、変換対象のオプションが表示されます。ここでは、移行先に応じて、移行対象を選択します。
 
-Since this is going to be a linux container, it makes sense to do a sanity check to avoid things like Windows filesystem paths and other non-container- or non-Linux-friendly issues. We also going to investigate removing our reliance on a proprietary JDK distribution, so we going to select OpenJDK as a target.
+本演習では、移行先はLinuxコンテナのため、Windowsファイルシステムのパスなど、コンテナやLinuxとの不整合の問題を避けるために、健全性チェックを行います。また、プロプラエティなJDKディストリビューションへの依存性の排除を検討するため、OpenJDKをターゲットとして選択します。
 
-Click on `Containers`, `Linux`, and `OpenJDK` as the targets.
+ターゲットとして `Containers`, `Linux`, `OpenJDK` をクリックしてください。
 
 image::configure-analysis-checked.png[Configure Analysis]
 
-Click on `Next`.
+`Next` をクリックしてください。
 
 Select `Application and internal dependencies only` for the scope of dependencies.
+依存関係の範囲に `Application and internal dependencies only` for the scope of dependencies. を選択します。
 
 image::packages.png[Select packages]
 
-Click on `Next`.
+`Next` をクリックしてください。
 
-=== 3.1.3. Advanced
+=== 3.1.3. 詳細設定
 
-You will now be presented with options for custom rules.
+依存関係の範囲を選択後、カスタムルールのオプションが表示されます。
 
 image::custom-rules.png[Custom rules]
 
-MTA Analysis uses a custom rule engine for the analysis. It comes with many rules out of the box to support the different migration paths, but it can be extended. Custom rules can be developed with a very simple XML syntax and used as part of the analysis. We've provided some custom rules which will detect the usage of a specific library that we know has been used at Globex in the past and make suggestions for changes to be performed to remove it.
+MTAのAnalysisでは、分析にカスタムルールエンジンが使用されます。さまざまなマイグレーションパスをサポートするために、多くのルールが最初から用意されていますが、必要に応じて、このルールを拡張することも可能です。カスタムルールは非常に簡単なXML構文で開発でき、分析の一部として使用できます。Globexで使用されていたと判明している、特定のライブラリの使用用途を検出し、そのライブラリを削除するために実行すべき変更を提案するカスタムルールを何種類か提供しています。
 
-Click on `Add Rule` to upload a custom rule (`corporate-framework-config.windup.xml`) in the *customrules* directory that you have already downloaded in your file system.
+`Add Rule` をクリックして、ファイルシステムにダウンロード済みの *customrules* ディレクトリにあるカスタムルール(`corporate-framework-config.windup.xml`)をアップロードしてください。
 
-Drag and drop the file or upload it from your local file system.
+ファイルをドラッグ＆ドロップするか、ローカルファイルシステムからアップロードしてください。
 
-[NOTE]
+[注]
 ====
-If you use a MacOS to upload the `.windup.xml` file, you should drag and drop the file rather than choosing the file on the popup file explorer.
+MacOSで `.windup.xml` ファイルをアップロードする場合は、ポップアップウィンドウのファイルエクスプローラー上でファイルを選択するのではなく、ドラッグ＆ドロップでファイルをアップロードする必要があります。
 ====
 
 image::upload-custom-rule.png[upload-custom-rule]
 
-Click on `Add`. Make sure the custom rule is added. Click on `Next`.
+ファイルのドラッグ＆ドロップ後、 `Add` をクリックしてください。クリック後、カスタムルールが追加されていることを確認してください。 `Next` をクリックします。
 
 image::enable-custom-rule.png[enable-custom-rule]
 
-Next, you will be presented with options to fine tune the analysis. For now we will stick with the default options.
+次に、分析の微調整オプションが表示されますが、本演習では、デフォルトのオプションのままとします。
 
 image::fine-tune.png[Fine tuning]
 
-Click on `Next`.
+`Next` をクリックしてください。
 
-Lastly, we are presented with a summary of the configuration for our analysis.
+最後に、分析の構成についてまとめてご紹介します。
 
 image::finish-project.png[Finish project]
 
-Click on `Run`.
+`Run` をクリックしてください。
 
-The analysis begins, and once it is finished you will be able to access the reports. Stay on this view until the analysis is finished.
+「Run」をクリック後、分析処理が始まり、完了後に分析レポートにアクセスできるようになります。分析処理が完了するまで、お待ちください。
 
-Once it finishes, expand the customers application using the caret on the left. Then click on `Report`.
+分析処理の完了後、左のキャレットから「Customers」アプリケーションを展開します。その後、 `Report` をクリックしてください。
 
-[NOTE]
+[注]
 ====
-The analysis may take a few minutes as it must pull container images for Windup before executing the analysis.
+分析の実行前に、Windup用のコンテナイメージのダウンロードが必要となるため、分析に数分かかる場合があります。
 ====
 
 image::active-analysis.png[Active analysis]
 
-== 3.2. Understanding the report
+== 3.2. レポートの理解
 
-The Dashboard gives an overview of the entire application migration effort. It summarizes:
+ダッシュボードでは、アプリケーションのマイグレーション作業全体を俯瞰することができます。ここでは、以下のようにまとめられています。
 
-* The incidents and story points by category
-* The incidents and story points by level of effort of the suggested changes
-* The incidents by package
+* カテゴリー別のインシデントとストーリーポイント
+* 提案された変更点のLOE別インシデントとストーリーポイント
+* パッケージごとのインシデント
 
-[NOTE]
-Story points are an abstract metric commonly used in Agile software development to estimate the relative level of effort needed to implement a feature or change. Migration Toolkit for Application uses story points to express the level of effort needed to migrate particular application constructs, and the application as a whole. The level of effort will vary greatly depending on the size and complexity of the application(s) to migrate.
+[注]
+ストーリーポイントとは、アジャイルソフトウェア開発でよく使われる抽象的な指標で、機能や変更を実装するために必要な相対的な労力レベル（LOE）を見積もるためのものです。Migration Toolkit for Applicationは、ストーリーポイントを用いて、特定のアプリケーション構成やアプリケーション全体のマイグレーションに必要なLOEを表示します。マイグレーション対象のアプリケーションの規模や複雑さによって、LOEは大きく異なります。
 
-Once the report is finished, click on the link to access the report. Click on `customers-tomcat.war` application.
+レポート作成の完成後、リンクをクリックしてレポートにアクセスします。 `customers-tomcat.war` アプリケーションをクリックしてください。
 
 image::report-view.png[View report]
 
-The reports provide all kinds of information about the application, like the technologies it uses, dependencies, but most importantly issues that need to get fixed.
+レポートには、アプリケーションに関するあらゆる情報、例として、動作環境、依存関係、そして最も重要な情報として、修正すべき問題が記載されています。
 
 image::report-dashboard.png[report dashboard]
 
-Click on the `Issues` tab.
+`Issues` タブをクリックしてください。
 
 This view shows us the list of issues that could prevent an application to successfully run on the target runtime. We can see that the application has a few mandatory issues that need to be addressed.
+`Issue` リストでは、ターゲットランタイム上でアプリケーションが正常に実行されるのを妨げる可能性のある問題のリストが表示されます。この例では、アプリケーションの場合、対処すべき必須事項がいくつかあることが分かります。
 
-Click on `Hard coded IP address`.
+`Hard coded IP address` をクリックします。
 
-By choosing the issue we can see where it was detected and view a hint on how to solve it.  It looks like the config files are pointing to some static IPs. That's not good in a cloud / container environment!
+表示されている問題を選択すると、対象の問題が検出された場所を確認し、解決方法のヒントを見ることができます。設定ファイルで、固定IPがいくつか使用されているようです。この設定はクラウド環境、コンテナ環境では、適さないものとなります。
 
 image::report-hint.png[report hint]
+ 
+ `File system issue` をクリックしてください。
 
-Click on `File system issue`.
-
-It looks like a problem has been detected on some class coming from the config library. We are analyzing the binary, so the dependencies have been analyzed as well.
+この例では、コンフィグライブラリから送られてくるクラスで問題が検出されたようです。バイナリを分析しているため、依存関係も分析対象となります。
 
 image::report-hint-fs.png[report hint file system]
 
-Click on `Legacy configuration issue`.
+`Legacy configuration issue` をクリックしてください。
 
-It looks like the custom rule got triggered and found some issues with the source code.  This rule detects the use of a custom configuration library and gives some hints about what needs to be done to fix it.
+この例では、カスタムルールがトリガーされ、ソースコードに問題が見つかったようです。このルールは、カスタム設定ライブラリの使用を検出し、それを修正するために必要なヒントが得られます。
 
 image::report-hint-custom.png[report hint custom rule]
 
-Click on the `io.konveyor.demo.ordermanagement.config.PersistenceConfig` file.
+ `io.konveyor.demo.ordermanagement.config.PersistenceConfig` をクリックしてください。
 
 image::report-code.png[report code]
 
-You can now see exactly where the issue is located in the source code.
+クリック後、ソースコードのどこに問題があるのか、正確に把握できます。
 
-== Summary
+== まとめ
 
-You have now successfully analyzed the legacy application to learn what migration issues you have. You'll refactor the application to fix the issues in the next module. Then, you'll deploy the modernized application to Red Hat OpenShift. Let's go!
+以上で、レガシーアプリケーションの分析に成功し、どのようなマイグレーションの問題があるのかを知ることができました。次のモジュールでは、特定した問題を解決するために、アプリケーションのリファクタリングを実施します。そしてその後、モダナイゼーションされたアプリケーションを、Red Hat OpenShift にデプロイします。次のモジュールに移動してください。
