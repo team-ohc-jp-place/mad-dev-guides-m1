@@ -164,7 +164,7 @@ image::report-hint-fs.png[report hint file system]
 
 image::report-hint-custom.png[report hint custom rule]
 
- `io.konveyor.demo.ordermanagement.config.PersistenceConfig` をクリックしてください。
+`io.konveyor.demo.ordermanagement.config.PersistenceConfig` をクリックしてください。
 
 image::report-code.png[report code]
 
