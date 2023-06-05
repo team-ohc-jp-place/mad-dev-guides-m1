@@ -11,7 +11,7 @@ image::app-mod-approach.png[Modernization Approach]
 
 このモジュールでは、2つのフェーズ（_評価_、_合理化_）を以下の手順にてご説明します。
 
-* https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/6.0/html-single/introduction_to_the_migration_toolkit_for_applications/index[Migration Toolkit for Applications (MTA)^]を使用したレガシーアプリケーションの評価と分析
+* https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/6.0/html-single/introduction_to_the_migration_toolkit_for_applications/index[Migration Toolkit for Applications (MTA)^] を使用したレガシーアプリケーションの評価と分析
 
 [注]
 ====
@@ -28,10 +28,10 @@ image::architecture_initial.png[architecture_initial]
 
 今回使用するアプリケーションは、すでにレガシー環境から OpenShift に一部移行されている状態となっています。
 
-Globex Retail のアプリケーションは、_Node.js_ のフロントエンドサービスから構成され、ゲートウェイサービスを通じてデータを取得します。ゲートウェイサービスは、「Customers」、「Orders」、「inventory」という 3 つのバックエンドサービスに接続されています。各サービスは、データを保存するためにそれぞれ独自のデータベースを使用します。
+Globex Retail のアプリケーションは、 _Node.js_ のフロントエンドサービスから構成され、ゲートウェイサービスを通じてデータを取得します。ゲートウェイサービスは、「Customers」、「Orders」、「inventory」という 3 つのバックエンドサービスに接続されています。各サービスは、データを保存するためにそれぞれ独自のデータベースを使用します。
 
-The services running on OpenShift are deployed in a namespace `retail-%USERID%`. You will eventually manage these services using *OpenShift GitOps* and *Pipelines* in later modules.
-OpenShift 上で動作するサービスは、ネームスペース　`retail-%USERID%`にデプロイされます。そして最終的には、後に出てくるモジュールにて、　*OpenShift GitOps*　と *Pipelines* を使用してこれらのサービスを管理することになります。
+
+OpenShift 上で動作するサービスは、ネームスペース `retail-%USERID%` にデプロイされます。そして最終的には、後に出てくるモジュールにて、　*OpenShift GitOps*　と *Pipelines* を使用してこれらのサービスを管理することになります。
 
 [注]
 ====
@@ -57,15 +57,15 @@ image::architecture_completed.png[architecture_completed]
 
 image::alreadyset.png[alreadyset]
 
-`ユーザー名`が正しく設定されていることを確認後、次に進んでください。＊確認できない場合は、上記のボックスに、割り当てられたユーザーIDを以下のように入力してください＊。
+`ユーザー名` が正しく設定されていることを確認後、次に進んでください。 ＊確認できない場合は、上記のボックスに、割り当てられたユーザーIDを以下のように入力してください＊。
 
 image::setuser.png[setuser]
 
-こちらを実施後、このワークショップのリンクとコピー/ペーストコードが設定変更されます。誤ったユーザー名を入力した場合は、URL パラメータでユーザー名を更新してください（例：` 1-introduction.html?USERID=%USERID% `）
+こちらを実施後、このワークショップのリンクとコピー/ペーストコードが設定変更されます。誤ったユーザー名を入力した場合は、URL パラメータでユーザー名を更新してください（例： `1-introduction.html?USERID=%USERID%`）
 
 [重要]
 ====
-ハンズオンラボを受講中は、固有のユーザー名（例：`%USERID%`）を使用する必要があります。例として、自分のプロジェクト（例：retail-%USERID%）にアプリケーションをデプロイする必要があります。
+ハンズオンラボを受講中は、固有のユーザー名（例： `%USERID%` ）を使用する必要があります。例として、自分のプロジェクト（例：retail-%USERID%）にアプリケーションをデプロイする必要があります。
 ====
 
 === 1.2.2. OpenShift クラスタ
@@ -97,9 +97,9 @@ image::vscode.png[VSCode]
 
 == 1.3. Globex Retail サービスの調査（GUI）
 
-フロントエンドの Web アプリケーションにアクセスして、Global Retail のサービスアプリケーションにアクセスできることを確認してください。フロントエンドアプリケーションへのアクセス URL は、OpenShift のコマンドラインツール（`oc`）を使用する必要があります。VS Code Serverを開き、デフォルトで _oc_ コマンドがインストールされているターミナルを新たに開いてください。
+フロントエンドの Web アプリケーションにアクセスして、Global Retail のサービスアプリケーションにアクセスできることを確認してください。フロントエンドアプリケーションへのアクセス URL は、OpenShift のコマンドラインツール（ `oc` ）を使用する必要があります。VS Code Serverを開き、デフォルトで _oc_ コマンドがインストールされているターミナルを新たに開いてください。
 
-VS Code のターミナルメニューにある　`新しいターミナル`　をクリックし、新しいターミナルが開いたら、以下の _oc_ コマンドを実行してください
+VS Code のターミナルメニューにある `新しいターミナル` をクリックし、新しいターミナルが開いたら、以下の _oc_ コマンドを実行してください
 
 [.console-input]
 [source,bash]
