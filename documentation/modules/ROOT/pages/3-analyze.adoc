@@ -151,7 +151,7 @@ image::report-dashboard.png[report dashboard]
 
 image::report-hint.png[report hint]
  
- `File system issue` をクリックしてください。
+`File system issue` をクリックしてください。
 
 この例では、コンフィグライブラリから送られてくるクラスで問題が検出されたようです。バイナリを分析しているため、依存関係も分析対象となります。
 
