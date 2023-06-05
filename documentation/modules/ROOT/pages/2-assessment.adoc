@@ -5,26 +5,26 @@
 
 Globexにおけるデジタルトランスフォーメーションおよびクラウド導入にあたってのイニシアチブの一環として、開発チームとDevOpsチームは、Red Hat Virtualization上の仮想マシンとRed Hat OpenShift上のコンテナ化アプリケーションで動作するサイロ化した既存サービスを個別にモダナイゼーションへ向けて対応することとしました。
 
-本演習の目標は、既存アプリケーションのポートフォリオを評価し、アプリケーションモダナイゼーションのため、高度なクラウドネイティブアーキテクチャの実装に関して、潜在する問題やリスクを特定することです。
+本演習の目標は、既存アプリケーションのポートフォリオをアセスメントし、アプリケーションモダナイゼーションのため、高度なクラウドネイティブアーキテクチャの実装に関して、潜在する問題やリスクを特定することです。
 
 == 2.1. MTA Web Consoleへのアクセス
 
-既存アプリケーションの評価を実施するために、　https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/6.0/html-single/introduction_to_the_migration_toolkit_for_applications/index[Migration Toolkit for Applications (MTA)^]　を使用します。本演習では、MTAを使用して、Red Hat Virtualization上のTomcatサーバーをベースにした顧客サービスを評価します。
+既存アプリケーションのアセスメントを実施するために、 https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/6.0/html-single/introduction_to_the_migration_toolkit_for_applications/index[Migration Toolkit for Applications (MTA)^] を使用します。本演習では、MTAを使用して、Red Hat Virtualization上のTomcatサーバーをベースにした顧客サービスをアセスメントします。
 
-新たにブラウザを開き、　https://mta-mta-%USERID%.%SUBDOMAIN%[MTA Web Console^]　にアクセスします。
+新たにブラウザを開き、 https://mta-mta-%USERID%.%SUBDOMAIN%[MTA Web Console^] にアクセスします。
 
-アクセス後、*Customers*、*Orders*、*Inventory*　など、既存アプリケーションのインベントリ情報が表示されます。
+アクセス後、 *Customers*、 *Orders*、 *Inventory* など、既存アプリケーションのインベントリ情報が表示されます。
 
 image::application-inventory.png[application inventory]
 
-**MTAのApplication Inventory**　オプションは、https://github.com/konveyor/tackle-pathfinder[Tackle Pathfinder^]による評価および https://github.com/windup/[Windup^]による解析の対象となるアプリケーションを選択できます。このオプションには主に以下4つの機能があります。
+**MTAのApplication Inventory** オプションは、https://github.com/konveyor/tackle-pathfinder[Tackle Pathfinder^] によるアセスメントおよび https://github.com/windup/[Windup^] による解析の対象となるアプリケーションを選択できます。このオプションには主に以下4つの機能があります。
 
 * アプリケーションのポートフォリオの維持
 * アプリケーションと、それをサポートするビジネスサービスのリンク
 * 相互依存関係の定義付け
 * 拡張可能なタグ付けモデルを使用したメタデータの追加、アプリケーションを多次元で記述および分類
 
-**Tackle Pathfinder**　は、Kubernetesプラットフォーム上のコンテナにデプロイするために、アプリケーションのモダナイゼーションに対する適性を評価する対話型アンケートベースのツールです。このツールでの出力内容には以下が含まれます。
+**Tackle Pathfinder** は、Kubernetesプラットフォーム上のコンテナにデプロイするために、アプリケーションのモダナイゼーションに対する適性をアセスメントする対話型アンケートベースのツールです。このツールでの出力内容には以下が含まれます。
 
 * アプリケーションのコンテナ化およびKubernetesへの適合性
 * 関連するリスクの優先順位リスト（ツールからのアンケートに対する回答に基づいています。）
@@ -32,39 +32,39 @@ image::application-inventory.png[application inventory]
 
 == 2.2. Controls
 
-*Controls*　は、Application InventoryおよびPathfinderの評価に付加価値を加えるエンティティの集合体です。これは、_business services_、_stakeholders_、 _stakeholder groups_、_job functions_、_tag types_、_tags_で構成されています。
+*Controls* は、Application InventoryおよびPathfinderの評価に付加価値を加えるエンティティの集合体です。これは、 _business services_、 _stakeholders_、 _stakeholder groups_、 _job functions_、 _tag types_、 _tags_ で構成されています。
 
 Controlは、アプリケーションとそのビジネスにおけるステークホルダーとの関係性に関する、有用なメタデータを含み、ポートフォリオ全体のモダナイゼーション計画を最適化する際にご活用いただけます。
 
 === 2.2.1. ステークホルダー
 
-左メニューの`Controls`に進むと、*Hank Scorpio*や*Homer Simpson*といった既存のステークホルダーが表示されます。
+左メニューの `Controls` に進むと、 *Hank Scorpio* や *Homer Simpson* といった既存のステークホルダーが表示されます。
 
 image::mta-control-stakeholder.png[stakeholders]
 
-また、アプリケーションの評価については、*IT Management*や*Retail Management*など、既存の_ステークホルダーグループ_にて確認できます。
+また、アプリケーションのアセスメントについては、 *IT Management* や *Retail Management* など、既存の_ステークホルダーグループ_にて確認できます。
 
 image::mta-stakeholder-groups.png[stakeholder-groups]
 
 === 2.2.2. Business services
 
-アプリケーションは、 **business service** など複数の方法で分類およびグループ化できます。レガシーな`Retail`アプリケーション向けのBusiness serviceを作成しました。
+アプリケーションは、 **business service** など複数の方法で分類およびグループ化できます。レガシーな `Retail` アプリケーション向けのBusiness serviceを作成しました。
 
-左メニューの`Controls`から_Business services_タブをクリックすると、*Finance and HR*、*Retail*など、既存の_business services_が表示されます。
+左メニューの `Controls` から_Business services_タブをクリックすると、 *Finance and HR*、 *Retail* など、既存の _business services_ が表示されます。
 
 image::mta-control-business-service.png[business service]
 
 == 2.3. Application inventory
 
-続いて、レガシーアプリケーションに焦点をあててみます。`Java`、`Tomcat`、`Oracle`など、どのテクノロジーかを表すタグを追加し、各アプリケーションがどのカスタムアーキテクチャライブラリを使用しているかを識別できるカスタムタグタイプを追加しました。
+続いて、レガシーアプリケーションに焦点をあててみます。 `Java`、 `Tomcat`、 `Oracle` など、どのテクノロジーかを表すタグを追加し、各アプリケーションがどのカスタムアーキテクチャライブラリを使用しているかを識別できるカスタムタグタイプを追加しました。
 
 === 2.3.1. 「Customers」のApplication Inventoryの確認
 
-左メニューの`Application inventory`から、「Customers」のインベントリに対する`鉛筆`（編集）アイコンをクリックしてください。
+左メニューの `Application inventory` から、「Customers」のインベントリに対する `鉛筆` （EDIT）アイコンをクリックしてください。
 
 image::app-inventory-landing.png[app-inventory-landing]
 
-ボタンをさらに`2つ`クリックすると、以下5つのタグが表示されます。
+ボタンをさらに `2つ` クリックすると、以下5つのタグが表示されます。
 
 * Oracle
 * Java
@@ -76,36 +76,36 @@ image::app-inventory-landing.png[app-inventory-landing]
 
 === 2.3.2. レガシーアプリケーション「Customers」へのアクセス
 
-評価はアンケートによって進められ、アプリケーションごとにコンテナ化の適否を判断することを目的としています。*テクノロジー*、*アプリケーションライフサイクルマネジメント*、*運用*などを含む、*アプリケーションランドスケープ*のさまざまな領域をすべてカバーしています。このアンケートによって、コンテナでのアプリケーションの実行を妨げる可能性のある潜在的なリスクや、リスクを軽減するための特別な対応が必要なリスクを、ツールが特定し提示します。
+アセスメントはアンケートによって進められ、アプリケーションごとにコンテナ化の適否を判断することを目的としています。 *テクノロジー*、 *アプリケーションライフサイクルマネジメント*、 *運用* などを含む、 *アプリケーションランドスケープ* のさまざまな領域をすべてカバーしています。このアンケートによって、コンテナでのアプリケーションの実行を妨げる可能性のある潜在的なリスクや、リスクを軽減するための特別な対応が必要なリスクを、ツールが特定し提示します。
 
-あるステークホルダーチームでは、技術的な問題を特定するために、すでに`retail`サービスに対する評価を実施しています。しかしながら、初回の評価では構成モデルの問題に対する回答を用意できませんでした。そのため、その時点では、回答を`不明`としていました。
+あるステークホルダーチームでは、技術的な問題を特定するために、すでに `retail` サービスに対するアセスメントを実施しています。しかしながら、初回のアセスメントでは構成モデルの問題に対する回答を用意できませんでした。そのため、その時点では、回答を `不明` としていました。
 
-今日は、「Customers」アプリケーション向けの`横断的な懸念事項`のセクションで適切な回答が選択できるように、*2回目*の評価を実施します。
+今日は、「Customers」アプリケーション向けの `横断的な懸念事項` のセクションで適切な回答が選択できるように、 *2回目* のアセスメントを実施します。
 
-`Assess`をクリックしてください。
+`Assess` をクリックしてください。
 
 image::app-inventory-access.png[app-inventory-access]
 
-*「This application has already been assessed. Do you want to continue?」*というメッセージが表示された場合、`Continue`をクリックして評価を続行します。
+*「This application has already been assessed. Do you want to continue?」* というメッセージが表示された場合、 `Continue` をクリックしてアセスメントを続行します。
 
 image::edit-assessment.png[edit-assessment]
 
-まず初めに、評価に関係するステークホルダー（_Homer Simpson_）およびステークホルダーグループ（_Retail Management_）を選定してください。初期値のまま進めてください。
+まず初めに、アセスメントに関係するステークホルダー（ _Homer Simpson_ ）およびステークホルダーグループ（ _Retail Management_ ）を選定してください。初期値のまま進めてください。
 
 image::select-stakeholder.png[select-stakeholder]
 
-`Next`をクリックしてください。
+`Next` をクリックしてください。
 
 [注]
 ====
-`Details`、`Dependencies`、`Observability`などのアプリケーション評価項目ごとに、初期評価での旧回答を確認します。回答を変更する必要はありませんが、「Application cross-cutting concerns」セクションに入るまで、`Next`ボタンをクリックし続けてください。
+`Details`、 `Dependencies`、 `Observability` などのアプリケーションアセスメント項目ごとに、初期アセスメントでの旧回答を確認します。回答を変更する必要はありませんが、「Application cross-cutting concerns」セクションに入るまで、`Next`ボタンをクリックし続けてください。
 ====
 
 image::app-details.png[app-details]
 
 === 2.3.3. アプリケーションの横断的な懸念事項
 
-*「How is the application configured?」*という質問に対して、以下回答を選択してください。このチームは、「Customers」アプリケーションが現状、複数の設定ファイルが異なるフォルダ/ディレクトリに存在していることを最終的に突き止めたので、その状況を回答するようお願いいたします。
+*「How is the application configured?」* という質問に対して、以下回答を選択してください。このチームは、「Customers」アプリケーションが現状、複数の設定ファイルが異なるフォルダ/ディレクトリに存在していることを最終的に突き止めたので、その状況を回答するようお願いいたします。
 
 * *Question* - How is the application configured?
 * *Answer* - `Multiple configuration files in multiple file system locations`
@@ -116,20 +116,20 @@ image::app-cross-cutting-concerns.png[app-cross-cutting-concerns]
 
 == 2.4. アプリケーションの確認
 
-「Save」をクリック後、確認画面が表示されます。この画面では、評価においてどのようなリスクが含まれているかを確認でき、そのリスクに基づいてどのような移行戦略をとるかの意志決定ができます。
+「Save」をクリック後、確認画面が表示されます。この画面では、アセスメントにおいてどのようなリスクが含まれているかを確認でき、そのリスクに基づいてどのような移行戦略をとるかの意志決定ができます。
 
 image::review.png[review]
 
-画面を下にスクロールすると、該当するリスクが表示されます。このレガシーアプリケーションは、クラウドに向かないスタティック（固定）ディスカバリーメカニズムを使用しています。これは、古典的なプラットフォームに由来しており、*固定IP*を介してデータベースにアクセスすることから、理にかなっています。
+画面を下にスクロールすると、該当するリスクが表示されます。このレガシーアプリケーションは、クラウドに向かないスタティック（固定）ディスカバリーメカニズムを使用しています。これは、古典的なプラットフォームに由来しており、 *固定IP* を介してデータベースにアクセスすることから、理にかなっています。
 
 image::review-high-risk.png[review-high-risk]
 
-アプリケーションをクラウドに適応させるには、ソースコードの変更が必要であることが判明したため、その戦略を`Refactor`とします。
+アプリケーションをクラウドに適応させるには、ソースコードの変更が必要であることが判明したため、その戦略を `Refactor` とします。
 
 * Proposed action: `Refactor`
 * Effort estimate: `Small`
 
-このアーキテクチャの中で重要なアプリケーションに対する対応のため、重要度を`10`、優先度を`9`に設定します。
+このアーキテクチャの中で重要なアプリケーションに対する対応のため、重要度を `10`、優先度を `9` に設定します。
 
 * Business criticality: `10`
 * Work priority: `9`
@@ -138,11 +138,11 @@ image::review-high-risk.png[review-high-risk]
 
 image::submit-review.png[submit-review]
 
-この時点で、`アプリケーションの横断的な懸念事項`セクションを更新するための、2回目の評価が完了しています。また、外部構成への参照や依存関係とともに、新たな高リスクも特定されました。
+この時点で、 `アプリケーションの横断的な懸念事項` セクションを更新するための、2回目の評価が完了しています。また、外部構成への参照や依存関係とともに、新たな高リスクも特定されました。
 
 image::complete-review.png[complete-review]
 
-左メニューの`Report`をクリックしてください。クリックすると_Current landscape_、_Adoption candidate distribution_、_Suggested adoption plan_、_Identified risks_などの`レポート`の詳細を確認できます。
+左メニューの `Report` をクリックしてください。クリックすると_Current landscape_、_Adoption candidate distribution_、_Suggested adoption plan_、_Identified risks_などの`レポート`の詳細を確認できます。
 
 image::report-review.png[report-review]
 
