@@ -13,7 +13,7 @@ image::app-mod-approach.png[Modernization Approach]
 
 * https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/6.0/html-single/introduction_to_the_migration_toolkit_for_applications/index[Migration Toolkit for Applications (MTA)^] を使用したレガシーアプリケーションの評価と分析
 
-[注]
+[NOTE]
 ====
 Migration Toolkit for Applications（MTA）は、Red Hat OpenShift 上のハイブリッドクラウド環境における大規模なアプリケーションモダナイゼーションの取り組みを促進します。このソリューションは、採用プロセス全体においてポートフォリオレベルとアプリケーションレベルの両方で理解が得られるので、アプリケーションのインベントリー、評価、分析、および管理を行い、ユーザーインターフェイスを使用して OpenShift への移行をより短い期間で行うことができます。
 ====
@@ -33,7 +33,7 @@ Globex Retail のアプリケーションは、 _Node.js_ のフロントエン�
 
 OpenShift 上で動作するサービスは、ネームスペース `retail-%USERID%` にデプロイされます。そして最終的には、後に出てくるモジュールにて、　*OpenShift GitOps* と *Pipelines* を使用してこれらのサービスを管理することになります。
 
-[注]
+[NOTE]
 ====
 ImagePullBackOff エラーのため、「Customers」の Podが Failed 状態となっている可能性がありますが、こちらは OpenShift の CI/CD と GitOps のセクションを終了後に、自動的に修正されます。
 ====
@@ -63,7 +63,7 @@ image::setuser.png[setuser]
 
 こちらを実施後、このワークショップのリンクとコピー/ペーストコードが設定変更されます。誤ったユーザー名を入力した場合は、URL パラメータでユーザー名を更新してください（例： `1-introduction.html?USERID=%USERID%`）
 
-[重要]
+[IMPORTANT]
 ====
 ハンズオンラボを受講中は、固有のユーザー名（例： `%USERID%` ）を使用する必要があります。例として、自分のプロジェクト（例：retail-%USERID%）にアプリケーションをデプロイする必要があります。
 ====
@@ -108,7 +108,7 @@ oc login -u %USERID% -p openshift https://openshift.default.svc:443
 
 image::vscode-terminal.png[vscode-terminal]
 
-[注]
+[NOTE]
 ====
 コピー&ペーストの許可に関する *「See text andimages copied to the clipboard」* というポップアップメッセージが表示されたら、 `Allow` をクリックします。その際に、ターミナルで `「Use insecure connections?」` というメッセージも表示される可能性もありますが、その場合は、 `y` を入力してください。
 ====
