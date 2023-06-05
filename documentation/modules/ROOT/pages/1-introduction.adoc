@@ -45,7 +45,7 @@ ImagePullBackOff エラーのため、「Customers」の Podが Failed 状態と
 * 「Customers」サービスでは、Red Hat Virtualization 上の VM で Apache Tomcat 上で動作する古い Java コードベースを使用しています。このモジュールでは、この Java のレガシーアプリケーションの評価、分析を行い、Java コードのモダナイゼーションを実現するのに最も適した方法を学習し、その後、Red Hat JBoss Web Server の上にあるOpenShift にこのアプリケーションをデプロイします。
 * 「Customers」のデータベースは、Red Hat Virtualization の VM として動作する Oracle データベースを使用していますが、この場合、OpenShift 上でこのデータベースを Pod としてデプロイすることはできません。その代わり、 Migration Toolkit for Virtualization を使用してこの VM を既存環境から持ち込み、OpenShift Virtualization に移行することになります。
 
-このワークショップのすべてのモジュールを受講後、皆様のデプロイメントアーキテクチャは以下になります:
+このワークショップのすべてのモジュールを受講後、皆様のデプロイメントアーキテクチャは以下になります。
 
 image::architecture_completed.png[architecture_completed]
 
