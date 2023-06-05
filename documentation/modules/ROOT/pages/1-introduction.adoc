@@ -31,7 +31,7 @@ image::architecture_initial.png[architecture_initial]
 Globex Retail のアプリケーションは、 _Node.js_ のフロントエンドサービスから構成され、ゲートウェイサービスを通じてデータを取得します。ゲートウェイサービスは、「Customers」、「Orders」、「inventory」という 3 つのバックエンドサービスに接続されています。各サービスは、データを保存するためにそれぞれ独自のデータベースを使用します。
 
 
-OpenShift 上で動作するサービスは、ネームスペース `retail-%USERID%` にデプロイされます。そして最終的には、後に出てくるモジュールにて、　*OpenShift GitOps* と *Pipelines* を使用してこれらのサービスを管理することになります。
+OpenShift 上で動作するサービスは、ネームスペース `retail-%USERID%` にデプロイされます。そして最終的には、後に出てくるモジュールにて、 *OpenShift GitOps* と *Pipelines* を使用してこれらのサービスを管理することになります。
 
 [NOTE]
 ====
