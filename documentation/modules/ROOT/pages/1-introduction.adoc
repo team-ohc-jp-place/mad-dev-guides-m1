@@ -57,7 +57,7 @@ image::architecture_completed.png[architecture_completed]
 
 image::alreadyset.png[alreadyset]
 
-`ユーザー名` が正しく設定されていることを確認後、次に進んでください。 ＊確認できない場合は、上記のボックスに、割り当てられたユーザーIDを以下のように入力してください＊。
+`ユーザー名` が正しく設定されていることを確認後、次に進んでください。 *確認できない場合は、上記のボックスに、割り当てられたユーザーIDを以下のように入力してください*。
 
 image::setuser.png[setuser]
 
