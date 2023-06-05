@@ -70,7 +70,6 @@ image::setuser.png[setuser]
 
 === 1.2.2. OpenShift クラスタ
 
-Your OpenShift cluster is already configured with everything you need. Here are the details:
 このワークショップの OpenShift クラスタには、ハンズオンで使用するものがすでに構成されています。以下はその詳細となります。
 
 * ソースコードリポジトリをホストする `Gitea`
