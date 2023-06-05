@@ -38,7 +38,7 @@ OpenShift 上で動作するサービスは、ネームスペース `retail-%USE
 ImagePullBackOff エラーのため、「Customers」の Podが Failed 状態となっている可能性がありますが、こちらは OpenShift の CI/CD と GitOps のセクションを終了後に、自動的に修正されます。
 ====
 
-アプリケーションのすべてのソースコードおよびすべてのサービスの GitOps YAML Manifest は、このワークショップ向けに OpenShift クラスタでホストされている　（Git互換の）　*Gitea* リポジトリに格納されています。
+アプリケーションのすべてのソースコードおよびすべてのサービスの GitOps YAML Manifest は、このワークショップ向けに OpenShift クラスタでホストされている　（Git互換の） *Gitea* リポジトリに格納されています。
 
 現在の問題となっているものは、 *Customers* サービスです。
 
