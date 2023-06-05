@@ -70,8 +70,7 @@ image::configure-analysis-checked.png[Configure Analysis]
 
 `Next` をクリックしてください。
 
-Select `Application and internal dependencies only` for the scope of dependencies.
-依存関係の範囲に `Application and internal dependencies only` for the scope of dependencies. を選択します。
+依存関係の範囲に `Application and internal dependencies only` を選択します。
 
 image::packages.png[Select packages]
 
