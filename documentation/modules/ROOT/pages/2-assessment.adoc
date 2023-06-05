@@ -98,7 +98,7 @@ image::select-stakeholder.png[select-stakeholder]
 
 [注]
 ====
-`Details`、 `Dependencies`、 `Observability` などのアプリケーションアセスメント項目ごとに、初期アセスメントでの旧回答を確認します。回答を変更する必要はありませんが、「Application cross-cutting concerns」セクションに入るまで、`Next`ボタンをクリックし続けてください。
+`Details`、 `Dependencies`、 `Observability` などのアプリケーションアセスメント項目ごとに、初期アセスメントでの旧回答を確認します。回答を変更する必要はありませんが、「Application cross-cutting concerns」セクションに入るまで、 `Next` ボタンをクリックし続けてください。
 ====
 
 image::app-details.png[app-details]
