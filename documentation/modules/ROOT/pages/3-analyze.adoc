@@ -7,12 +7,11 @@
  
 本演習の目標は、MTAの `分析` 機能を使用してソースコードとプロパティに対してスキャンを実施し、 _Customers_ のアプリケーションを分析することです。そして分析実施後、分析レポートを確認し、実際にコード修正に取り掛かります。
 
-MTA _Analysis_ is used by organizations for:
 MTAの _分析_ は以下のような場面でご活用いただけます。 
 
 * 計画および作業見積り
 * マイグレーションに関する問題点の洗い出しと解決策の提示
-* •	詳細な分析結果のレポート
+* 詳細な分析結果のレポート
 
 そして、以下のような機能をご利用いただけます。
 
@@ -20,7 +19,7 @@ MTAの _分析_ は以下のような場面でご活用いただけます。
 * ルールの拡張性およびカスタマイズ性
 * ソースコードやアプリケーションアーカイブに対する分析
 
-詳細については、 https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/6.0/html-single/introduction_to_the_migration_toolkit_for_applications/index#new-mta-features_getting-started-guide[MTA Features]の機能を参照ください。
+詳細については、 https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/6.0/html-single/introduction_to_the_migration_toolkit_for_applications/index#new-mta-features_getting-started-guide[MTA Features] の機能を参照ください。
 
 == 3.1. MTAを使用した「Customers」アプリケーションの分析
 
@@ -145,7 +144,6 @@ image::report-dashboard.png[report dashboard]
 
 `Issues` タブをクリックしてください。
 
-This view shows us the list of issues that could prevent an application to successfully run on the target runtime. We can see that the application has a few mandatory issues that need to be addressed.
 `Issue` リストでは、ターゲットランタイム上でアプリケーションが正常に実行されるのを妨げる可能性のある問題のリストが表示されます。この例では、アプリケーションの場合、対処すべき必須事項がいくつかあることが分かります。
 
 `Hard coded IP address` をクリックします。
