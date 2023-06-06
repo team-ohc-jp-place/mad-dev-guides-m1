@@ -1,4 +1,4 @@
-= 2. アセスメント – 25分
+tye= 2. アセスメント – 25分
 :imagesdir: ../assets/images
 
 == 本演習の目標
@@ -82,7 +82,7 @@ image::app-inventory-landing.png[app-inventory-landing]
 
 今日は、「Customers」アプリケーション向けの `cross-cutting concerns` のセクションで適切な回答が選択できるように、 *2回目* のアセスメントを実施します。
 
-`Customers` をチェックして `Assess` をクリックしてください。
+`Customers` アプリケーションを選択して `Assess` をクリックしてください。
 
 image::app-inventory-access.png[app-inventory-access]
 
