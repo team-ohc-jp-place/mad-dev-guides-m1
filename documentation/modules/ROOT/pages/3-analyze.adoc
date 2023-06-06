@@ -3,7 +3,7 @@
 
 == 本演習の目標
 
-前コースの *アセスメント* 演習で学習したように、モダナイゼーションの問題における、実際のコード行を特定し、モダナイゼーションプロジェクトの時間と労力を見積もる必要があるため、レガシーアプリケーションを分析する必要があります。
+前コースの *アセスメント* 演習で学習したように、モダナイゼーションの問題における、実際のコードの行を特定し、モダナイゼーションプロジェクトの時間と労力を見積もる必要があるため、レガシーアプリケーションを分析する必要があります。
  
 本演習の目標は、MTAの `分析` 機能を使用してソースコードとプロパティに対してスキャンを実施し、 _Customers_ のアプリケーションを分析することです。そして分析実施後、分析レポートを確認し、実際にコード修正に取り掛かります。
 
@@ -19,7 +19,7 @@ MTAの _分析_ は以下のような場面でご活用いただけます。
 * ルールの拡張性およびカスタマイズ性
 * ソースコードやアプリケーションアーカイブに対する分析
 
-詳細については、 https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/6.0/html-single/introduction_to_the_migration_toolkit_for_applications/index#new-mta-features_getting-started-guide[MTA Features] の機能を参照ください。
+詳細については、 https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/6.0/html-single/introduction_to_the_migration_toolkit_for_applications/index#new-mta-features_getting-started-guide[MTA Features] をご参照ください。
 
 == 3.1. MTAを使用した「Customers」アプリケーションの分析
 
@@ -29,7 +29,7 @@ image::gitea-repo.png[gitea-repo]
 
 [NOTE]
 ====
-また、以下の認証情報でGiteaリポジトリにログインできます。
+以下の認証情報でGiteaリポジトリにログインできます。
 
 * Username - `%USERID%`
 * Password - `{openshift-password}`
@@ -39,7 +39,7 @@ image::gitea-repo.png[gitea-repo]
 
 MTA Web Consoleの `Application inventory` ページに戻り、 `Analysis` タブを選択してください。
 
-`Customers` アプリケーションを選択後、 `Analyze` ボタンが有効になりますため、こちらをクリックしてください。
+`Customers` アプリケーションを選択後、 `Analyze` ボタンが有効になるので、クリックしてください。
 
 image::application-analysis.png[application-analysis]
 
