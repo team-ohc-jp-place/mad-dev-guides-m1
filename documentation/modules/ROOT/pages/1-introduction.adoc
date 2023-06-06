@@ -75,7 +75,6 @@ image::setuser.png[setuser]
 * ソースコードリポジトリをホストする `Gitea`
 * 移行した Oracle VM を最終的に稼働させる `OpenShift Virtualization`
 * Oracle VM から Red Hat OpenShiftContainer Platform への移行を容易にする `Migration Toolkit for Virtualization`
-* `OpenShift GitOps` to manage the deployed services using a GitOps approach through ArgoCD
 * ArgoCD による GitOps アプローチでデプロイされたサービスを管理する `OpenShift GitOps`
 * ソースコードからお客様のアプリケーションを構築する `OpenShift Pipelines` および `retail` プロジェクトにデプロイする GitOps。
 * お客様のサービスのモダナイゼーションを支援する `Migration Toolkit for Applications`
@@ -90,7 +89,7 @@ VSCode は OpenShift クラスタにデプロイ済みのため、IDE として�
 
 image::vscode-server-login.png[vscode-server-login]
 
-グラフィカルユーザーインターフェース（GUI）には、以下の特徴があります。
+グラフィカルユーザーインターフェース（GUI）には、以下のような見た目です。
 
 image::vscode.png[VSCode]
 
