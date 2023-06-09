@@ -141,11 +141,11 @@ image::frontend.png[Frontend]
 
 == 1.4. 顧客データへのアクセス
 
-RHV 環境には Oracle Database VM がデプロイされているだけでなく、Apache Tomcat 上で、お客様の古いアプリケーションを実行する別の VM もホスティングされています。
+RHV 環境には Oracle Database の動作する VM と Apache Tomcat 上で動作する古いアプリケーションを実行する VM がホスティングされています。
 
 ターミナルウィンドウから `curl` コマンドを実行し、アプリケーションがデータベースに接続されているかどうか確認できます。
 
-*「Customers」サービス（Tomcat VM）* の IP アドレスを使用して、「Customers」サービスにアクセスしてください。アクセスするには、VS Code Server のターミナル（もしくは Tomcat の公開されている IP アドレスを用いてローカル環境）で、以下の _curl_ コマンドを実行します。
+*「Customers」サービス（Tomcat VM）* の IP アドレスを使用して、「Customers」サービスにアクセスしてください。アクセスするには、VS Code Server のターミナルで、以下の _curl_ コマンドを実行します。（もしくは Tomcat のパブリックな IP アドレスを使用することで、あなたのローカル環境からも接続できます。）
 
 [.console-input]
 [source,bash]
@@ -161,7 +161,7 @@ curl http://%TOMCATIP%:8080/customers-tomcat-0.0.1-SNAPSHOT/customers/1 ; echo
 {"id":1,"username":"phlegm_master_19","name":"Guybrush","surname":"Threepwood","address":"1060 West Addison","zipCode":"ME-001","city":"Melee Town","country":"Melee Island"}
 ----
 
-別の顧客データを取得してください。
+別の顧客データを取得することもできます。
 
 [.console-input]
 [source,bash]
