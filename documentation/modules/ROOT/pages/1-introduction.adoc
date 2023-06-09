@@ -112,7 +112,7 @@ image::vscode-terminal.png[vscode-terminal]
 コピー&ペーストの許可に関する *"See text andimages copied to the clipboard"* というポップアップメッセージが表示された場合は `Allow` をクリックします。また、ターミナルで `"Use insecure connections?"` というメッセージが表示さた場合は `y` を入力してください。
 ====
 
-VS Code Server のターミナルで以下の `oc` コマンドを実行してフロントエンドアプリケーションの `ルート`　の URL を表示してください。
+VS Code Server のターミナルで以下の `oc` コマンドを実行して *フロントエンド* アプリケーションの `ルート`　の URL を表示してください。
 
 [.console-input]
 [source,bash,subs="+attributes,macros+"]
