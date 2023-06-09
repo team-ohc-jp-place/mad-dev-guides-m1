@@ -81,7 +81,7 @@ image::setuser.png[setuser]
 
 === 1.2.3. Visual Studio Code Server
 
-VSCode は OpenShift クラスタにデプロイ済みのため、IDE として使用可能です。そのため、システムに追加でインストールまたは設定を行う必要はありません。これにより、クローンリポジトリ内のソースコードや設定ファイルを簡単に変更できます。
+VSCode が使用できるように OpenShift クラスタにデプロイされていません。あなたのPCにインストールや設定を行う必要はありません。クローンリポジトリ内のソースコードや設定ファイルを簡単に変更できます。
 
 はじめに、 link:https://codeserver-codeserver-%USERID%.%SUBDOMAIN%[VS Code server instance^] にアクセスし、以下のパスワードでログインしてください。
 
