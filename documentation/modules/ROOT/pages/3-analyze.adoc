@@ -35,7 +35,7 @@ image::gitea-repo.png[gitea-repo]
 * Password - `{openshift-password}`
 ====
 
-プロジェクトをローカルファイルシステムにダウンロードもしくは複製後、プロジェクトの展開を行い、 *packages-mta* フォルダに `customers-tomcat.war` ファイルが存在しているかご確認ください。このファイルは、分析を実施するために、MTAにアップロードするファイルとなります。
+プロジェクトをローカルファイルシステムにダウンロードもしくはクローン後、プロジェクトの展開を行い、 *packages-mta* フォルダに `customers-tomcat.war` ファイルが存在しているかを確認します。このファイルは、分析を実施するために、MTAにアップロードするファイルとなります。
 
 MTA Web Consoleの `Application inventory` ページに戻り、 `Analysis` タブを選択してください。
 
