@@ -1,4 +1,4 @@
-tye= 2. アセスメント – 25分
+= 2. アセスメント – 25分
 :imagesdir: ../assets/images
 
 == 本演習の目標
