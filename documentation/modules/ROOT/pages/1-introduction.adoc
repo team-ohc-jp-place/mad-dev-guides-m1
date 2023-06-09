@@ -76,8 +76,8 @@ image::setuser.png[setuser]
 * 移行した Oracle VM を最終的に稼働させる `OpenShift Virtualization`
 * Oracle VM から Red Hat OpenShiftContainer Platform への移行を容易にする `Migration Toolkit for Virtualization`
 * ArgoCD による GitOps アプローチでデプロイされたサービスを管理する `OpenShift GitOps`
-* ソースコードからお客様のアプリケーションを構築する `OpenShift Pipelines` および `retail` プロジェクトにデプロイする GitOps。
-* お客様のサービスのモダナイゼーションを支援する `Migration Toolkit for Applications`
+* GitOps を使用してソースコードからアプリケーションをビルドして `retail` プロジェクトにデプロイする  `OpenShift Pipelines`
+* Customer サービスのモダナイゼーションを支援する `Migration Toolkit for Applications`
 
 === 1.2.3. Visual Studio Code Server
 
