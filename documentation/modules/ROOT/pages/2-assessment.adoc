@@ -17,12 +17,12 @@ Globexにおけるデジタルトランスフォーメーションおよびク�
 
 image::application-inventory.png[application inventory]
 
-**MTAのApplication Inventory** オプションは、 https://github.com/konveyor/tackle-pathfinder[Tackle Pathfinder^] によるアセスメントおよび https://github.com/windup/[Windup^] による解析の対象となるアプリケーションを選択できます。このオプションには主に以下4つの機能があります。
+**MTAのApplication Inventory** では、 https://github.com/konveyor/tackle-pathfinder[Tackle Pathfinder^] による評価と https://github.com/windup/[Windup^] による解析を行いたい対象のアプリケーションを選択します。ここには主に以下4つの機能があります。
 
 * アプリケーションのポートフォリオの維持
 * アプリケーションと、それをサポートするビジネスサービスのリンク
 * 相互依存関係の定義付け
-* 拡張可能なタグ付けモデルを使用したメタデータの追加、アプリケーションを多次元で記述および分類
+* アプリケーションを多次元での記述や分類をするための拡張可能なタグ付けモデルを使用したメタデータの追加
 
 **Tackle Pathfinder** は、Kubernetesプラットフォーム上のコンテナにデプロイするために、アプリケーションのモダナイゼーションに対する適性をアセスメントする対話型アンケートベースのツールです。このツールでの出力内容には以下が含まれます。
 
