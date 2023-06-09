@@ -56,7 +56,7 @@ image::mta-control-business-service.png[business service]
 
 == 2.3. Application inventory
 
-続いて、レガシーアプリケーションに焦点をあててみます。 `Java`、 `Tomcat`、 `Oracle` など、どのテクノロジーかを表すタグを追加し、各アプリケーションがどのカスタムアーキテクチャライブラリを使用しているかを識別できるカスタムタグタイプを追加しました。
+続いて、レガシーアプリケーションに焦点をあててみます。 `Java` や `Tomcat`、 `Oracle` などの、どのテクノロジーかを表し、各アプリケーションがどのカスタムアーキテクチャライブラリを使用しているかを識別できるカスタムタグタイプが既に追加されています。
 
 === 2.3.1. 「Customers」のApplication Inventoryの確認
 
