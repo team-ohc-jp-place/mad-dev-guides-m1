@@ -76,21 +76,21 @@ image::app-inventory-landing.png[app-inventory-landing]
 
 === 2.3.2. レガシーアプリケーション「Customers」へのアクセス
 
-アセスメントはアンケートによって進められ、アプリケーションごとにコンテナ化の適否を判断することを目的としています。 *テクノロジー*、 *アプリケーションライフサイクルマネジメント*、 *運用* などを含む、 *アプリケーションランドスケープ* のさまざまな領域をすべてカバーしています。このアンケートによって、コンテナでのアプリケーションの実行を妨げる可能性のある潜在的なリスクや、リスクを軽減するための特別な対応が必要なリスクを、ツールが特定し提示します。
+評価はアンケートによって進められ、アプリケーションごとにコンテナ化の適否を判断することを目的としています。 *テクノロジー*、 *アプリケーションライフサイクルマネジメント*、 *運用* などを含む、 *アプリケーションランドスケープ* のさまざまな領域をすべてカバーしています。このアンケートによって、コンテナでのアプリケーションの実行を妨げる可能性のある潜在的なリスクや、リスクを軽減するための特別な対応が必要な事項を、ツールが特定し提示します。
 
-あるステークホルダーチームでは、技術的な問題を特定するために、すでに `retail` サービスに対するアセスメントを実施しています。しかしながら、初回のアセスメントでは構成モデルの問題に対する回答を用意できませんでした。そのため、その時点では、回答を `Unknown` としていました。
+あるステークホルダーチームでは、技術的な問題を特定するために、すでに `retail` サービスに対する評価を実施しています。しかしながら、初回の評価では設定ファイルの運用方法の質問に対して回答できませんでした。そのため、その時点では、回答を `Unknown` としていました。
 
-今日は、「Customers」アプリケーション向けの `cross-cutting concerns` のセクションで適切な回答が選択できるように、 *2回目* のアセスメントを実施します。
+これから「Customers」アプリケーション向けの `cross-cutting concerns` のセクションで適切な回答が選択できるように、 *2回目* の評価を実施します。
 
 `Customers` アプリケーションを選択して `Assess` をクリックしてください。
 
 image::app-inventory-access.png[app-inventory-access]
 
-*「This application has already been assessed. Do you want to continue?」* というメッセージが表示された場合、 `Continue` をクリックしてアセスメントを続行します。
+*「This application has already been assessed. Do you want to continue?」* というメッセージが表示された場合、 `Continue` をクリックして評価を続行します。
 
 image::edit-assessment.png[edit-assessment]
 
-まず初めに、アセスメントに関係するステークホルダー（ _Homer Simpson_ ）およびステークホルダーグループ（ _Retail Management_ ）を選定してください。初期値のまま進めてください。
+まず初めに、評価に関係するステークホルダー（ _Homer Simpson_ ）とステークホルダーグループ（ _Retail Management_ ）を選定します。初期値のまま進めてください。
 
 image::select-stakeholder.png[select-stakeholder]
 
@@ -98,14 +98,14 @@ image::select-stakeholder.png[select-stakeholder]
 
 [NOTE]
 ====
-`Details`、 `Dependencies`、 `Observability` などのアプリケーションアセスメント項目ごとに、初期アセスメントでの旧回答を確認します。回答を変更する必要はありませんが、「Application cross-cutting concerns」セクションに入るまで、 `Next` ボタンをクリックし続けてください。
+`Details`、 `Dependencies`、 `Observability` などのアプリケーションアセスメント項目ごとに、初期アセスメントでの旧回答を確認します。回答を変更する必要はありませんが、「アプリケーション横断的な懸念事項(Application cross-cutting concerns)」セクションに入るまで、 `Next` ボタンをクリックし続けてください。
 ====
 
 image::app-details.png[app-details]
 
 === 2.3.3. アプリケーションの横断的な懸念事項
 
-*「How is the application configured?」* という質問に対して、以下回答を選択してください。このチームは、「Customers」アプリケーションが現状、複数の設定ファイルが異なるフォルダ/ディレクトリに存在していることを最終的に突き止めたので、その状況を回答するようお願いいたします。
+*「How is the application configured?」* という質問に対して、以下回答を選択してください。このチームは、「Customers」アプリケーションが現状、複数の設定ファイルが異なるフォルダ/ディレクトリに存在していることを突き止めたので、その状況を回答します。
 
 * *Question* - How is the application configured?
 * *Answer* - `Multiple configuration files in multiple file system locations`
