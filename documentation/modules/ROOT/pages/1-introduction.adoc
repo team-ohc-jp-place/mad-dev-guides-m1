@@ -109,10 +109,10 @@ image::vscode-terminal.png[vscode-terminal]
 
 [NOTE]
 ====
-コピー&ペーストの許可に関する *「See text andimages copied to the clipboard」* というポップアップメッセージが表示されたら、 `Allow` をクリックします。その際に、ターミナルで `「Use insecure connections?」` というメッセージも表示される可能性もありますが、その場合は、 `y` を入力してください。
+コピー&ペーストの許可に関する *"See text andimages copied to the clipboard"* というポップアップメッセージが表示された場合は `Allow` をクリックします。また、ターミナルで `"Use insecure connections?"` というメッセージが表示さた場合は `y` を入力してください。
 ====
 
-フロントエンドアプリケーションの `ルート` URL を検索するため、 VS Code Server のターミナルで、以下の `oc` コマンドを実行してください。
+VS Code Server のターミナルで以下の `oc` コマンドを実行してフロントエンドアプリケーションの `ルート`　の URL を表示してください。
 
 [.console-input]
 [source,bash,subs="+attributes,macros+"]
@@ -129,15 +129,15 @@ NAME             HOST/PORT                                                      
 ordersfrontend   ordersfrontend-retail-%USERID%.%SUBDOMAIN%          ordersfrontend   web    edge/Redirect   None
 ----
 
-ブラウザのアドレスバーに `HOST/PORT` に上記のホスト名を入力し、オーダーに対してのフロントエンドルートに移動します。
+ブラウザのアドレスバーに `HOST/PORT` に表示されたホスト名を入力し、Ordersのフロントエンドルートに移動します。
 
 image::frontend.png[Frontend]
 
 左側の 3 つのパネルをクリックしてください。
 
-* `Customers` には、 _フルネーム、都市名、国名、ユーザー名_ などの顧客情報の一覧が表示されます。
-* `Orders` には、関連する顧客データを含む現在のオーダー情報が表示されます
-* `Products` には、現在の在庫情報が表示されます。
+* `Customers` は _フルネーム、都市名、国名、ユーザー名_ などの顧客情報の一覧を表します。
+* `Orders` は関連する顧客データを含む現在の注文情報を表します。
+* `Products` は現在の在庫情報を表します。
 
 == 1.4. 顧客データへのアクセス
 
