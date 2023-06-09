@@ -89,7 +89,7 @@ VSCode が使用できるように OpenShift クラスタにデプロイされ�
 
 image::vscode-server-login.png[vscode-server-login]
 
-グラフィカルユーザーインターフェース（GUI）には、以下のような見た目です。
+グラフィカルユーザーインターフェース（GUI）は以下のような見た目です。
 
 image::vscode.png[VSCode]
 
