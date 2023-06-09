@@ -23,7 +23,7 @@ MTAの _分析_ は以下のような場面で活用できます。
 
 == 3.1. MTAを使用した「Customers」アプリケーションの分析
 
-はじめに、 link:https://gitea.%SUBDOMAIN%/%USERID%/modern-app-dev[Gitea リポジトリ^] から、 `modern-app-dev` ポジトリをローカルシステムにダウンロード、もしくはgit cloneコマンドを実行する必要があります。以前、GitHubを使用した経験がある方であれば、このGiteaのインターフェイスは、とても馴染みやすいと思います。
+はじめに、 link:https://gitea.%SUBDOMAIN%/%USERID%/modern-app-dev[Gitea リポジトリ^] から、 `modern-app-dev` ポジトリをローカルシステムにダウンロード、もしくはgit cloneコマンドを実行する必要があります。GitHubを使用したことがあれば、このGiteaのインターフェイスは、とても馴染みやすいと思います。
 
 image::gitea-repo.png[gitea-repo]
 
