@@ -50,7 +50,7 @@ image::mta-stakeholder-groups.png[stakeholder-groups]
 
 アプリケーションは **business service** などの複数の方法で分類やグループ化できます。すでにレガシーな `Retail` アプリケーション向けのBusiness serviceを作成してあります。
 
-左メニューの `Controls` から_Business services_タブをクリックすると、 *Finance and HR*、 *Retail* など、既存の _business services_ が表示されます。
+左メニューの `Controls` から _Business services_ タブをクリックすると、 *Finance and HR*、 *Retail* など、既存の _business services_ が表示されます。
 
 image::mta-control-business-service.png[business service]
 
