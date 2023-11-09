@@ -76,7 +76,7 @@ image::app-inventory-landing.png[app-inventory-landing]
 * Corporate Custom Configuration Library
 * RHEL 8
 
-「Cancel」をクリックしてください。
+`Cancel`をクリックしてください。
 
 === 2.3.2. レガシーアプリケーション「Customers」へのアクセス
 
