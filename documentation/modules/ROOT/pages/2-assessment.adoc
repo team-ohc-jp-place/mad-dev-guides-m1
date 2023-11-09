@@ -30,6 +30,10 @@ image::application-inventory.png[application inventory]
 * 関連するリスクの優先順位リスト（ツールからのアンケートに対する回答に基づいています）
 * アプリケーションの優先順位、ビジネスクリティカル、依存関係が記載された実行計画
 
+**Migration Waves management** is a small collection of workloads that deliver business value. MTA’s Migration Wave groups applications to be migrated on a specified schedule. In addition, a migration wave enables you to export a list of the wave’s applications to the Jira issue management system. This automatically creates a separate Jira issue for each application of the migration wave for tracking.
+
+For more information, see https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/6.2/html/user_interface_guide/working-with-applications-in-the-ui#mta-web-creating-migration-waves_user-interface-guide[Creating migration waves^] and https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/6.2/html/user_interface_guide/working-with-applications-in-the-ui#mta-web-creating-jira-issues-for-migration-wave_user-interface-guide[Creating Jira issues for a migration wave^].
+
 == 2.2. Controls
 
 *Controls* は、Application InventoryおよびPathfinderの評価に付加価値を加えるエンティティの集合体です。これは、 _business services_、 _stakeholders_、 _stakeholder groups_、 _job functions_、 _tag types_、 _tags_ で構成されています。
@@ -72,7 +76,7 @@ image::app-inventory-landing.png[app-inventory-landing]
 * Corporate Custom Configuration Library
 * RHEL 8
 
-「Cancel」をクリックしてください。
+`Cancel` をクリックしてください。
 
 === 2.3.2. レガシーアプリケーション「Customers」へのアクセス
 
