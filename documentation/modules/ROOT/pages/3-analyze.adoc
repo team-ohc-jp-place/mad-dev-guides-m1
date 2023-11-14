@@ -39,14 +39,6 @@ image::mta-admin-git.png[admin git]
 * Password - `{openshift-password}`
 ====
 
-プロジェクトをローカルファイルシステムにダウンロードもしくはクローン後、プロジェクトの展開を行い、 *packages-mta* フォルダに `customers-tomcat.war` ファイルが存在しているかを確認します。このファイルは、分析を実施するために、MTAにアップロードするファイルとなります。
-
-MTA Web Consoleの `Application inventory` ページに戻り、 `Analysis` タブを選択してください。
-
-`Customers` アプリケーションを選択後、 `Analyze` ボタンが有効になるので、クリックしてください。
-
-image::application-analysis.png[application-analysis]
-
 Go back to the `Application inventory` page in the *Migration* perspective. Click on pencil (edit) icon for the customers inventory.
 
 Update application with the following source code information.
