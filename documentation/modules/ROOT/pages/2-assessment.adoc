@@ -68,7 +68,7 @@ image::mta-control-business-service.png[business service]
 
 image::app-inventory-landing.png[app-inventory-landing]
 
-`Tags` にある `2 more` ボタンクリックすると、以下5つのタグが表示されます。
+`Tags` にある `2 more` ボタンをクリックすると、以下5つのタグが表示されます。
 
 * Oracle
 * Java
