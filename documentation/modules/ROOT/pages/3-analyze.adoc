@@ -90,40 +90,47 @@ image::custom-rules.png[Custom rules]
 
 MTAのAnalysisでは、分析にカスタムルールエンジンが使用されます。さまざまなマイグレーションパスをサポートするために、多くのルールが最初から用意されていますが、必要に応じて、このルールを拡張することも可能です。カスタムルールは非常に簡単なXML構文で開発でき、分析の一部として使用できます。Globexで使用されていたと判明している、特定のライブラリの使用用途を検出し、そのライブラリを削除するために実行すべき変更を提案するカスタムルールを何種類か提供しています。
 
-`Add Rule` をクリックして、ファイルシステムにダウンロード済みの *customrules* ディレクトリにあるカスタムルール(`corporate-framework-config.windup.xml`)をアップロードしてください。
+Key in the following information in the repository page.
 
-ファイルをドラッグ＆ドロップするか、ローカルファイルシステムからアップロードしてください。
+* Repository type - `Git`
+* Source Repository - `https://gitea.%SUBDOMAIN%/%USERID%/modern-app-dev.git`
+* Branch - `main`
+* Root path - `customrules`
+* Associated credentials - `None`
 
 [NOTE]
 ====
-MacOSで `.windup.xml` ファイルをアップロードする場合は、ポップアップウィンドウのファイルエクスプローラー上でファイルを選択するのではなく、ドラッグ＆ドロップを使用する必要があります。
+In case you don't see `None` in the `Associated credentials`, please leave it since the field is not mandatory.
 ====
 
-image::upload-custom-rule.png[upload-custom-rule]
+[NOTE]
+====
+In case you don't see `None` in the `Associated credentials`, please leave it since the field is not mandatory.
+====
 
-ファイルのドラッグ＆ドロップ後、 `Add` をクリックしてください。クリック後、カスタムルールが追加されていることを確認してください。 `Next` をクリックします。
+image::add-repository-customrules.png[add-repository-customrules]
 
-image::enable-custom-rule.png[enable-custom-rule]
+Click on `Next`.
 
-次に、分析の微調整オプションが表示されますが、本演習では、デフォルトのオプションのままとします。
+Next, you will be presented with options to fine tune the analysis. For now we will stick with the default options.
 
 image::fine-tune.png[Fine tuning]
 
-`Next` をクリックしてください。
+Click on `Next`.
 
-最後に、分析の構成についてまとめてご紹介します。
+Lastly, we are presented with a summary of the configuration for our analysis.
 
 image::finish-project.png[Finish project]
 
-`Run` をクリックしてください。
+Click on `Run`.
 
-「Run」をクリック後、分析処理が始まり、完了後に分析レポートにアクセスできるようになります。分析処理が完了するまで、お待ちください。
+The analysis begins, and once it is finished you will be able to access the reports. Stay on this view until the analysis is finished.
 
-分析処理の完了後、左のキャレットから「Customers」アプリケーションを展開します。その後、 `Report` をクリックしてください。
+Once it finishes, select *Customers* application. Then click on `Report` in the *Reports* tab on the right.
 
 [NOTE]
 ====
-分析の実行前にWindup用のコンテナイメージのダウンロードが必要となるため、分析に数分かかる場合があります。
+The analysis may take a few minutes as it must pull container images for Windup before executing the analysis.
 ====
 
 image::active-analysis.png[Active analysis]
