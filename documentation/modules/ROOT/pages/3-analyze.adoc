@@ -39,18 +39,18 @@ image::mta-admin-git.png[admin git]
 
 *Migration* パースペクティブのアプリケーションインベントリページに戻ります。顧客インベントリの鉛筆（編集）アイコンをクリックします。
 
-Update application with the following source code information.
+下記のソースコードに関する情報でアプリケーションを更新します。
 
-* Repository type - `Git`
-* Source Repository - `https://gitea.%SUBDOMAIN%/%USERID%/modern-app-dev.git`
-* Branch - `main`
-* Root path - `package-legacy`
+* リポジトリタイプ - `Git`
+* ソースリポジトリ - `https://gitea.%SUBDOMAIN%/%USERID%/modern-app-dev.git`
+* ブランチ - `main`
+* ルートパス - `package-legacy`
 
 image::application-update-git.png[application-update-git]
 
-Select `Save`.
+`Save` を選択します。
 
-Select the `Analysis` tab. When you click on the `Customers` application, `Analyze` button will be enabled. Then, click on *Analyze*.
+`分析` タブを選択します。 `Customers` アプリケーションをクリックすると、 `Analyze` ボタンが有効になります。 次に、 *Analyze* をクリックします。
 
 image::application-analysis.png[application-analysis]
 
