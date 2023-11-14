@@ -56,14 +56,9 @@ Select the `Analysis` tab. When you click on the `Customers` application, `Analy
 
 image::application-analysis.png[application-analysis]
 
-
-
-
-
-
 === 3.1.1. 分析モード
 
-分析モードのポップアップウィンドウから、 `Upload local binary` オプションを選択します。選択後、 *customers-tomcat.war* ファイルをドラッグ＆ドロップするか、ローカルファイルシステムからアップロードしてください。
+Select Source dode in Analysis mode popup.
 
 image::add-applications.png[Add applications]
 
