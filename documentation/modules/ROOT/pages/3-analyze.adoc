@@ -47,6 +47,28 @@ MTA Web Consoleの `Application inventory` ページに戻り、 `Analysis` タ�
 
 image::application-analysis.png[application-analysis]
 
+Go back to the `Application inventory` page in the *Migration* perspective. Click on pencil (edit) icon for the customers inventory.
+
+Update application with the following source code information.
+
+* Repository type - `Git`
+* Source Repository - `https://gitea.%SUBDOMAIN%/%USERID%/modern-app-dev.git`
+* Branch - `main`
+* Root path - `package-legacy`
+
+image::application-update-git.png[application-update-git]
+
+Select `Save`.
+
+Select the `Analysis` tab. When you click on the `Customers` application, `Analyze` button will be enabled. Then, click on *Analyze*.
+
+image::application-analysis.png[application-analysis]
+
+
+
+
+
+
 === 3.1.1. 分析モード
 
 分析モードのポップアップウィンドウから、 `Upload local binary` オプションを選択します。選択後、 *customers-tomcat.war* ファイルをドラッグ＆ドロップするか、ローカルファイルシステムからアップロードしてください。
