@@ -146,7 +146,7 @@ image::submit-review.png[submit-review]
 
 image::complete-review.png[complete-review]
 
-左メニューの `Report` をクリックしてください。クリックすると _Current landscape_、 _Adoption candidate distribution_、 _Suggested adoption plan_、 _Identified risks_ などの `レポート` の詳細を確認できます。
+左メニューの `Report` をクリックしてください。クリックすると _Current landscape_、 _Adoption candidate distribution_、 _Suggested adoption plan_、 _Identified risks_ などのレポートの詳細を確認できます。
 
 image::report-review.png[report-review]
 
