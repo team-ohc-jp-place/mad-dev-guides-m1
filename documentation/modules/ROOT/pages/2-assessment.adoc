@@ -142,7 +142,7 @@ image::review-high-risk.png[review-high-risk]
 
 image::submit-review.png[submit-review]
 
-この時点で、 `アプリケーションの横断的な懸念事項` セクションを更新して2回目の評価が完了しています。また、外部設定への参照や依存関係といった新たな高リスクも特定されました。
+この時点で、 `アプリケーションの横断的な懸念事項` セクションを更新して2回目の評価が完了しています。また、外部設定への参照や依存関係といった新たな `高` リスクも特定されました。
 
 image::complete-review.png[complete-review]
 
