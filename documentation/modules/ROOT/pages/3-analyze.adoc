@@ -25,7 +25,7 @@ MTAの _分析_ は以下のような場面で活用できます。
 
 まず初めに、MTAを使いインベントリやアプリケーションを分析する際に、 link:https://gitea.%SUBDOMAIN%/%USERID%/modern-app-dev[Gitea repository^] を参照するように *Gitリポジトリ* を設定する必要があります。
 
-*管理* ビューで、 *Repositories > Git* を選択します。 *Consume insecure Git repositories* を右に切り替えます。
+*管理* ビューで、 *Repositories > Git* を選択します。 *Consume insecure Git repositories* トグルを右に切り替えます。
 
 image::mta-admin-git.png[admin git]
 
