@@ -86,7 +86,7 @@ image::app-inventory-landing.png[app-inventory-landing]
 
 これから「Customers」アプリケーション向けの `cross-cutting concerns` のセクションで適切な回答が選択できるように、 *2回目* の評価を実施します。
 
-`Customers` アプリケーションを選択して `Assess` をクリックしてください。
+`Assess` をクリックしてください。
 
 image::app-inventory-access.png[app-inventory-access]
 
