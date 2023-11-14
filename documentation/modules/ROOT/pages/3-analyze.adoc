@@ -98,7 +98,7 @@ Key in the following information in the repository page.
 
 [NOTE]
 ====
-`関連する資格情報` に `なし` が表示されていない場合、このフィールドは必須ではありませんので、そのままにしておいてください。
+`関連する資格情報` に `None` が表示されていない場合、このフィールドは必須ではありませんので、そのままにしておいてください。
 ====
 
 image::add-repository-customrules.png[add-repository-customrules]
