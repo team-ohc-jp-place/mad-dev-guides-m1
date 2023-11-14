@@ -101,11 +101,6 @@ Key in the following information in the repository page.
 In case you don't see `None` in the `Associated credentials`, please leave it since the field is not mandatory.
 ====
 
-[NOTE]
-====
-In case you don't see `None` in the `Associated credentials`, please leave it since the field is not mandatory.
-====
-
 image::add-repository-customrules.png[add-repository-customrules]
 
 Click on `Next`.
