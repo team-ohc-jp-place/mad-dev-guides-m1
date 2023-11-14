@@ -23,8 +23,6 @@ MTAの _分析_ は以下のような場面で活用できます。
 
 == 3.1. MTAを使用した「Customers」アプリケーションの分析
 
-はじめに、 link:https://gitea.%SUBDOMAIN%/%USERID%/modern-app-dev[Gitea リポジトリ^] から、 `modern-app-dev` ポジトリをローカルシステムにダウンロード、もしくはgit cloneコマンドを実行する必要があります。GitHubを使用したことがあれば、このGiteaのインターフェイスは、とても馴染みやすいと思います。
-
 First, you need to configure *Git repositories* to refer to your link:https://gitea.%SUBDOMAIN%/%USERID%/modern-app-dev[Gitea repository^] when you analyze your inventory and applications using MTA.
 
 In *Administration* view, select *Repositories > Git*. `Toggle` the *Consume insecure Git repositories* switch to the right.
