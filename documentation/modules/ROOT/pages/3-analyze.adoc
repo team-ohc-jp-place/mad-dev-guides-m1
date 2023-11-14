@@ -90,15 +90,15 @@ MTAのAnalysisでは、分析にカスタムルールエンジンが使用され
 
 Key in the following information in the repository page.
 
-* Repository type - `Git`
-* Source Repository - `https://gitea.%SUBDOMAIN%/%USERID%/modern-app-dev.git`
-* Branch - `main`
-* Root path - `customrules`
-* Associated credentials - `None`
+* リポジトリタイプ - `Git`
+* ソースリポジトリ - `https://gitea.%SUBDOMAIN%/%USERID%/modern-app-dev.git`
+* ブランチ - `main`
+* ルートパス - `customrules`
+* 関連する認証情報 - `None`
 
 [NOTE]
 ====
-In case you don't see `None` in the `Associated credentials`, please leave it since the field is not mandatory.
+`関連する資格情報` に `なし` が表示されていない場合、このフィールドは必須ではありませんので、そのままにしておいてください。
 ====
 
 image::add-repository-customrules.png[add-repository-customrules]
