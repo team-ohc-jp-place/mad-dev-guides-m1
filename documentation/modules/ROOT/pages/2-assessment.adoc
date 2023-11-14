@@ -32,7 +32,7 @@ image::application-inventory.png[application inventory]
 
 **Migration Waves management** ビジネス価値を提供するワークロードの小さな集合体です。 MTA のMigration Wavesは、指定したスケジュールで移行するアプリケーションをグループ化します。さらに、Migration Wavesでは、アプリケーションのリストを Jira 課題管理システムにエクスポートすることができます。これにより、Migration Wavesの各アプリケーションに対して、追跡用のJira課題が自動的に作成されます。
 
-詳細については、https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/6.2/html/user_interface_guide/working-with-applications-in-the-ui#mta-web-creating-migration-waves_user-interface-guide[Creating migration waves^] 及び、 https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/6.2/html/user_interface_guide/working-with-applications-in-the-ui#mta-web-creating-jira-issues-for-migration-wave_user-interface-guide[Creating Jira issues for a migration wave^] を参照してください。
+詳細については、 https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/6.2/html/user_interface_guide/working-with-applications-in-the-ui#mta-web-creating-migration-waves_user-interface-guide[Creating migration waves^] 及び、 https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/6.2/html/user_interface_guide/working-with-applications-in-the-ui#mta-web-creating-jira-issues-for-migration-wave_user-interface-guide[Creating Jira issues for a migration wave^] を参照してください。
 
 == 2.2. Controls
 
