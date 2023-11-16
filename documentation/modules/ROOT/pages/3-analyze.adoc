@@ -88,7 +88,7 @@ image::custom-rules.png[Custom rules]
 
 MTAのAnalysisでは、分析にカスタムルールエンジンが使用されます。さまざまなマイグレーションパスをサポートするために、多くのルールが最初から用意されていますが、必要に応じて、このルールを拡張することも可能です。カスタムルールは非常に簡単なXML構文で開発でき、分析の一部として使用できます。Globexで使用されていたと判明している、特定のライブラリの使用用途を検出し、そのライブラリを削除するために実行すべき変更を提案するカスタムルールを何種類か提供しています。
 
-Key in the following information in the repository page.
+リポジトリページで以下を入力してください。
 
 * リポジトリタイプ - `Git`
 * ソースリポジトリ - `https://gitea.%SUBDOMAIN%/%USERID%/modern-app-dev.git`
