@@ -64,19 +64,19 @@ image::mta-control-business-service.png[business service]
 
 === 2.3.1. 「Customers」のApplication Inventoryの確認
 
-左メニューの `Application inventory` から、「Customers」のインベントリに対する `鉛筆` （EDIT）アイコンをクリックしてください。
+左メニューの `Application inventory` から、「Customers」アプリケーションに対する `鉛筆` （EDIT）アイコンをクリックしてください。
 
 image::app-inventory-landing.png[app-inventory-landing]
 
-`Tags` にある `2 more` ボタンをクリックすると、以下5つのタグが表示されます。
+以下5つのタグが表示されます。
 
-* Oracle
+* PostgreSQL
 * Java
 * Tomcat
 * Corporate Custom Configuration Library
 * RHEL 8
 
-`Cancel` をクリックしてください。
+`x` ボタンをクリックしてください。
 
 === 2.3.2. レガシーアプリケーション「Customers」へのアクセス
 

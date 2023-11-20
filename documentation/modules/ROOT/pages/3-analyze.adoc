@@ -43,7 +43,7 @@ image::mta-admin-git.png[admin git]
 
 * リポジトリタイプ - `Git`
 * ソースリポジトリ - `https://gitea.%SUBDOMAIN%/%USERID%/modern-app-dev.git`
-* ブランチ - `main`
+* ブランチ - `patch-postgres`
 * ルートパス - `package-legacy`
 
 image::application-update-git.png[application-update-git]
@@ -92,7 +92,7 @@ MTAのAnalysisでは、分析にカスタムルールエンジンが使用され
 
 * リポジトリタイプ - `Git`
 * ソースリポジトリ - `https://gitea.%SUBDOMAIN%/%USERID%/modern-app-dev.git`
-* ブランチ - `main`
+* ブランチ - `patch-postgres`
 * ルートパス - `customrules`
 * 関連する認証情報 - `None`
 

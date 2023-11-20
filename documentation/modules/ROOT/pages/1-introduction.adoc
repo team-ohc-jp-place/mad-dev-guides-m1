@@ -24,7 +24,7 @@ Globex は、今回のワークショップで使用する架空の企業です�
 
 image::architecture_initial.png[architecture_initial]
 
-このワークショップの初期状態は、Red Hat Virtualization と Red Hat OpenShift Container Platform に分散された環境です。
+このワークショップの初期状態は、レガシー Virtualization と Red Hat OpenShift Container Platform に分散された環境です。
 
 今回使用するアプリケーションは、すでにレガシー環境から OpenShift に一部移行されている状態となっています。
 
@@ -42,8 +42,8 @@ ImagePullBackOff エラーのため、「Customers」の Podが Failed 状態と
 
 現在の問題となっているものは、 *Customers* サービスです。
 
-* 「Customers」サービスでは、Red Hat Virtualization 上の VM で Apache Tomcat 上で動作する古い Java コードベースを使用しています。このモジュールでは、この Java のレガシーアプリケーションの評価、分析を行い、Java コードのモダナイゼーションを実現するのに最も適した方法を学習し、その後、OpenShift 上の Red Hat JBoss Web Server にこのアプリケーションをデプロイします。
-* 「Customers」のデータベースは Red Hat Virtualization 上のVMで動作しているOracle DBを使用しています。Oracle DBであるため OpenShift上のPodとしてデプロイすることができません。その代わりに Migration Toolkit for Virtualization を使用して既存環境からOpenShift Virtualization にリフトアンドシフトすることにします。
+* 「Customers」サービスでは、レガシー Virtualization 上の VM で Apache Tomcat 上で動作する古い Java コードベースを使用しています。このモジュールでは、この Java のレガシーアプリケーションの評価、分析を行い、Java コードのモダナイゼーションを実現するのに最も適した方法を学習し、その後、OpenShift 上の Red Hat JBoss Web Server にこのアプリケーションをデプロイします。
+* 「Customers」のデータベースは レガシー Virtualization 上のVMで動作しているPostgreSQLを使用しています。GlobexのIT運用チームは、コンテナ化ではなく仮想環境上でPostgreSQLデータベースを実行し続けたいと考えています。したがって Migration Toolkit for Virtualization を使用して既存環境からOpenShift Virtualization にリフトアンドシフトすることにします。
 
 このワークショップのすべてのモジュールを終了後のデプロイメントアーキテクチャは以下になります。
 
@@ -73,8 +73,8 @@ image::setuser.png[setuser]
 このワークショップの OpenShift クラスタには、ハンズオンで使用するものがすでに構成されています。以下はその詳細となります。
 
 * ソースコードリポジトリをホストする `Gitea`
-* 移行した Oracle VM を最終的に稼働させる `OpenShift Virtualization`
-* Oracle VM から Red Hat OpenShiftContainer Platform への移行を容易にする `Migration Toolkit for Virtualization`
+* 移行した PostgreSQL VM を最終的に稼働させる `OpenShift Virtualization`
+* PostgreSQL VM から Red Hat OpenShiftContainer Platform への移行を容易にする `Migration Toolkit for Virtualization`
 * ArgoCD による GitOps アプローチでデプロイされたサービスを管理する `OpenShift GitOps`
 * GitOps を使用してソースコードからアプリケーションをビルドして `retail` プロジェクトにデプロイする  `OpenShift Pipelines`
 * Customer サービスのモダナイゼーションを支援する `Migration Toolkit for Applications`
@@ -141,7 +141,7 @@ image::frontend.png[Frontend]
 
 == 1.4. 顧客データへのアクセス
 
-RHV 環境には Oracle Database の動作する VM と Apache Tomcat 上で動作する古いアプリケーションを実行する VM がホスティングされています。
+レガシー環境には PostgreSQL Database の動作する VM と Apache Tomcat 上で動作する古いアプリケーションを実行する VM がホスティングされています。
 
 ターミナルウィンドウから `curl` コマンドを実行し、アプリケーションがデータベースに接続されているかどうか確認できます。
 
@@ -176,6 +176,26 @@ curl http://%TOMCATIP%:8080/customers-tomcat-0.0.1-SNAPSHOT/customers/2 ; echo
 ----
 {"id":2,"username":"hate_guybrush","name":"Pirate","surname":"Lechuck","address":"Caverns of Meat, no number","zipCode":"MO-666","city":"Giant Monkey Head","country":"Monkey Island"}
 ----
+
+== 1.5 作業プロジェクトの変更
+
+今日このモジュールを通して行う `patch-postgre` という正しいブランチを *check out* してください！VS Codeのターミナルで次の `git` コマンドを実行します。
+
+[.console-input]
+[source,bash]
+----
+git checkout patch-postgres
+----
+
+アウトプットは次のようになります。
+
+[.console-output]
+[source,bash,subs="+attributes,macros+"]
+----
+branch 'patch-postgres' set up to track 'origin/patch-postgres'.
+Switched to a new branch 'patch-postgres'
+----
+
 
 == おめでとうございます。
 
