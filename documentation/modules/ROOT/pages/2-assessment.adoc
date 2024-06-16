@@ -64,7 +64,7 @@ Let's focus on the legacy application. We have added tags that represent its tec
 
 === 2.3.1. Confirm the Customers Application Inventory
 
-Go to `Application inventory` on the left menu in the *Migration* perspective and click on `pencil` (edit) icon for the customers application.
+Go to `Application inventory` on the left menu in the *Migration* perspective and click on `tag` icon for the customers application.
 
 image::app-inventory-landing.png[app-inventory-landing]
 
@@ -90,7 +90,7 @@ Click on `Assess`.
 
 image::app-inventory-access.png[app-inventory-access]
 
-When you see *This application has already been assessed. Do you want to continue?* message, click on `Continue` to continue the assessment.
+When you see *Do you want to create a dedicated assessment for this application and override the inherited archetype assessment(s)?* message, click on `Override` to continue the assessment.
 
 image::edit-assessment.png[edit-assessment]
 
