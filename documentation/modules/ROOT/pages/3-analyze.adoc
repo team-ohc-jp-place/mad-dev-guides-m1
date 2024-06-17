@@ -23,7 +23,11 @@ Read more about it in the https://access.redhat.com/documentation/en-us/migratio
 
 == 3.1. Analyze Customers Application using MTA
 
-First, you need to configure *Git repositories* to refer to your link:https://gitea.%SUBDOMAIN%/%USERID%/modern-app-dev[Gitea repository^] when you analyze your inventory and applications using MTA.
+First, you need to allow the analysis reports to be downloaded. In *Administration* view, select *General*. `Toggle` the *Allow reports to be downloaded after running an analysis.* switch to the right.
+
+image::mta-admin-gen.png[admin git]
+
+Then, you also need to configure *Git repositories* to refer to your link:https://gitea.%SUBDOMAIN%/%USERID%/modern-app-dev[Gitea repository^] when you analyze your inventory and applications using MTA.
 
 In *Administration* view, select *Repositories > Git*. `Toggle` the *Consume insecure Git repositories* switch to the right.
 
