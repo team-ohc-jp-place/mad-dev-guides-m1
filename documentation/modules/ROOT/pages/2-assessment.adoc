@@ -62,93 +62,145 @@ image::mta-control-business-service.png[business service]
 
 Let's focus on the legacy application. We have added tags that represent its technology such as `Java`, `Tomcat` and `PostgreSQL`, and decided to add a custom tag type that allows us to identify which custom architecture libraries are used by each application.
 
-=== 2.3.1. Confirm the Customers Application Inventory
-
 Go to `Application inventory` on the left menu in the *Migration* perspective and click on `tag` icon for the customers application.
 
 image::app-inventory-landing.png[app-inventory-landing]
 
-It shows 5 tags.
+It shows 10 tags.
 
-* PostgreSQL
-* Java
-* Tomcat
-* Corporate Custom Configuration Library
-* RHEL 8
+image::mta-customer-tags.png[mta-customer-tags]
 
 Click on `x` button.
 
-=== 2.3.2. Assess the Legacy Customers Application
+== 2.4. Archetypes
 
-The assessment is driven by a questionnaire and aims to determine the suitability for containerization for each application. It covers all the different areas of the *application landscape*, including the *technology*, *application lifecycle management*, and *operations*. This questionnaire allow the tool to identify and present potential risks that might prevent the application from running in containers or would require extra steps to mitigate the risk.
+When dealing with applications at scale, a more sophisticated way of grouping applications together might be required to manage large portfolios effectively. **Archetypes** allow exactly that by automatically classifying applications based on their tag taxonomy. At the same time, applications associated with an archetype inherit some of their features such as additional tags or assessment data.
 
-One stakeholder team has already assessed the retail service to identify technical problems. However, they couldn't answer the configuration model questions during the first assessment. So they just left the answer as `Unknown` at that time.
+image::mta-archetypes.png[archetypes]
 
-Today, you'll run the *second* assessment to choose the proper answer in the `cross-cutting concerns` section for the _customers_ application. 
+Click on the _Summer Framework_ archetype to learn more about how archetypes work. This will open the _Archetype Profile_ side drawer that contains important information about the archetype:
 
-Click on `Assess`.
+image::mta-archetypes-summer.png[archetypes]
 
-image::app-inventory-access.png[app-inventory-access]
+This archetype has been modeled to cover all traditional Spring applications in the organization, so we can centralize their management. Let's discuss the fields we can find in archetypes:
 
-When you see *Do you want to create a dedicated assessment for this application and override the inherited archetype assessment(s)?* message, click on `Override` to continue the assessment.
+* Applications that match all the criteria tags will get automatically associated to the archetype. In this case, all applications that have the _Spring_, _Spring MVC_ and _Spring Data_ tags will be associated to the _Summer Framework_ archetype. That is the case of our _Customers_ application.
+* Archetype tags are the tags that will be inherited by applications just for the fact of being associated to the current archetype. These are a way to store metadata about applications at scale. In this case we have associated a dedicated tag for the framework (_Summer Framework_) and information about the runtime (_Tomcat_).
+* Archetypes often refer to corporate architectures or frameworks that are maintained by some department or team inside the organization. Archetypes also allow to document who are relevant stakeholders associated to them. We can see that the _Summer Framework_ is being maintained by Sanaa Cantu, Lena Bentley and Olumide Themba, alongside the IT Management group.
 
-image::edit-assessment.png[edit-assessment]
+On the _Applications_ section of the _Archetype Profile_ drawer you can see a link that reads "2 applications". Click on it and you will navigate back to the _Application Inventory_ with preapplied filters to display all applications associated with the _Summer Framework_ archetype. Clicking on the Customers application reveals that it has been associated to the _Summer Framework_ archetype in the _Archetypes_ section from the _Application Profile_.
 
-The first step will be to select the stakeholders (_Homer Simpson_) and Stakeholder groups (_Retail Management_) involved with the assessment. Leave the default values.
+image::mta-archetypes-inventory-customers.png[inventory]
 
-image::select-stakeholder.png[select-stakeholder]
+Given the association, the application should have inherited the Archetype tags from the Summer Framework archetype. Click on the _Tags_ tab from the _Application Profile_ and filter by Archetype. You should see the tags _Summer Framework_ and _Tomcat_.
 
-Click on `Next`.
+image::mta-archetypes-inventory-customers-tags.png[inventory]
+
+== 2.5. Assess the Summer Framework archetype
+
+The **Assessment module** provides a high level overview of a given application or archetype through the usage of questionnaires. The tool ships with a _Containerization_ questionnaire out of the box, with more curated questionnaires coming up in subsequent releases. The _Containerization_ questionnaire aims to determine the suitability for containerization for each application. It covers all the different areas of the *application landscape*, including the *technology*, *application lifecycle management*, and *operations*. This questionnaire allow the tool to identify and present potential risks that might prevent an application from running in containers or would require extra steps to mitigate the risk.
+
+=== 2.5.1. Enabling the Containerization questionnaire
+
+All questionnaires are disabled by default on a brand new *MTA* install to allow users to define which questionnaires should be answered by the user to consider an application as _assessed_. **MTA 7** now includes https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/7.0/html-single/user_interface_guide/index#mta-custom-questionnaire_user-interface-guide[the possibility of authoring custom questionnaires by using a YAML syntax^], but we will stick to the default _Containerization_ questionnaire for this exercise.
+
+Click on the perspective selector on the left menu and select _Administration_. Once the perspective shifts, click on _Assessment Questionnaires_.
+
+image::mta-questionnaires.png[questionnaires]
+
+This table shows you the list of available questionnaires, with information about number of questions and the different thresholds for all risk levels. The _Legacy Pathfinder_ questionnaire contains the containerization questions we are looking for, so click on the switch from the _Required_ column to enable it.
+
+image::mta-questionnaires-enabled.png[questionnaires]
+
+This means that, for applications on this MTA instance to be considered as _assessed_, only the _Legacy Pathfinder_ (AKA _Containerization_) questionnaire has to be answered at either application or archetype level.
+
+Click on the perspective selector and select _Migration_ to get back to the _Application Inventory_
+
+image::mta-intentory-assessed.png[questionnaires]
+
+You will notice that several applications, including our _Customers_ application, now appear to have they assessments completed. This is because some applications were already assessed in this MTA instance.
+
+=== 2.5.2. Completing the assessment for the Summer Framework archetype
+
+As we were discussing before, one stakeholder team has already assessed the _Summer Framework_ archetype to identify technical problems. However, they couldn't answer the configuration model questions during the first assessment. So they just left the answer as `Unknown` at that time.
+
+Today, you'll run the *second* assessment to choose the proper answer in the `cross-cutting concerns` section for the _Summer Framework_ archetype.
+
+Click on the _Archetypes_ option in the left menu, and then click on the kebab menu (the three vertical dots) for the _Summer Framework_ archetype and select the _Assess_ option.
+
+image::mta-assessment-summer.png[archetypes]
+
+The system will navigate to a view with a list of the available questionnaires for the _Summer Framework_ archetype. Since the assessment was already done, you will get the options to either _Retake_ the questionnaire or view the previous results.
+
+image::mta-assessment-summer-options.png[assessment]
+
+Click on _Retake_.
+
+You can think of an questionnaire as the script for having a meaningful conversation. As that conversation will potentially involve multiple stakeholders, it is important to document them in case it is necessary to reach out later to ask for clarifications.
+
+image::mta-assessment-stakeholders.png[assessment]
+
+You can see that Brendon Hayes, Dante Leblanc and Hanna Miriam were involved in this conversation, as well as the IT Management team. Click on `Next` to begin with the questionnaire.
 
 [NOTE]
 ====
-Review the former answers in the initial assessment for each application assessment section such as `Details`, `Dependencies`, and `Observability`. You don't need to change any answers but keep clicking on `Next` button until you get into the `Application cross-cutting concerns` section.
+Review the former answers in the initial assessment for each section such as `Details`, `Dependencies`, and `Observability`. You don't need to change any answers but keep clicking on `Next` button until you get into the `Application cross-cutting concerns` section.
 ====
 
-image::app-details.png[app-details]
+image::mta-assessment-app-details.png[app-details]
 
-=== 2.3.3. Application cross-cutting concerns
-
-Choose the following answer for the *How is the application configured?* question. The team finally figured out that the customers application currently has multiple configuration files in different folders/directories, so answer accordingly:
+Once you arrive to the _Application cross-cutting concerns_ section, choose the following answer for the *How is the application configured?* question. The team finally figured out that applications from the _Summer Framework_ archetype currently use multiple configuration files in different folders/directories, so answer accordingly:
 
 * *Question* - How is the application configured?
 * *Answer* - `Multiple configuration files in multiple file system locations`
 
-image::app-cross-cutting-concerns.png[app-cross-cutting-concerns]
+image::mta-assessment-app-cross-cutting-concerns.png[app-cross-cutting-concerns]
 
 Click on `Save and review`.
 
-== 2.4. Application Review
+== 2.6. Application Review
 
 You will be presented with the review screen. It allows you to find out which risks were identified during the assessment and decide which migration strategy to follow based those risks.
 
-image::review.png[review]
+image::mta-review.png[review]
 
-Scroll down the screen to view the risks. This legacy application uses a static (fixed) discovery mechanism that is not cloud-friendly, which makes sense since it comes from a classic platform and accesses a database through a *static IP*.
+In our assessment, MTA found some medium and high risks, we can take a look at them by scrolling down to the list of risks.The _Summer Framework_ archetype uses a static (fixed) discovery mechanism that is not cloud-friendly, which makes sense since it comes from a classic platform and accesses a database through a *static IP*.
 
-image::review-high-risk.png[review-high-risk]
+As stated before, the archetype also uses a custom configuration library that happens to load configuration from multiple paths on the filesystem. That is definitely an antippattern for cloud deployments, so we will need to find where that library is used in associated applications and replace it with a more cloud friendly approach.
 
-Now that we know we will need changes in the source code to adapt the application, we can decide that the strategy will be `Refactor`.
+image::mta-review-risks.png[review-risks]
+
+Now that we know that there will be some changes required in the source code to adapt applications associated to this archetype, we can decide that the strategy will be `Refactor`.
+
+We believe that only the configuration library needs to be replaced, so we would expect the effort required to be `Small`.
 
 * Proposed action: `Refactor`
 * Effort estimate: `Small`
 
-Since this is a key application in the architecture, we're going to set the criticality to `10` and priority to `9`.
+Since the _Summer Framework_ archetype is used to build critical applications for the business, we're going to set the criticality to `10` and priority to `9`.
 
 * Business criticality: `10`
 * Work priority: `9`
 
 Click on `Submit Review`.
 
-image::submit-review.png[submit-review]
+image::mta-submit-review.png[submit-review]
 
-At this point you have completed the 2nd assessment to update the `Application cross-cutting concerns` section. You have also identified a new `high` risk along with the external configuration references and dependencies.
+As discussed before, applications associated to an archetype will inherit some of its properties, **including the assessment and the review**. Click on the _Application Inventory_ option in the left menu, then click on the _Customers_ application. On the _Archetypes_ section from the _Application Profile_ you can see that the associated archetype (_Summer Framework_) appears to be both assessed and reviewed. The _Customers_ application also has the _Completed_ status on its _Assessment_ and _Review_ columns.
 
-image::complete-review.png[complete-review]
+image::mta-complete-review.png[complete-review]
 
-Go to `Report` on the left menu. There you will be able to access the report details such as _Current landscape_, _Adoption candidate distribution_, _Suggested adoption plan_, and _Identified risks_.
+Now click on the _Review_ tab from the _Application Profile_. As you can see, the values we assigned in the review for the _Summer Framework_ archetype have been inherited by the _Customers_ application.
 
-image::report-review.png[report-review]
+image::mta-complete-review-values.png[complete-review]
+
+To see an aggregated view of assessment data across the entire portfolio, go to the `Report` option on the left menu.
+
+image::mta-report-review.png[report-review]
+
+*Congratulations!* You have now successfully begun the modernization process by assessing the _Summer Framework_ archetype, and you identified issues and risks that will need to be considered in the next step: application analysis and code modification as part of modernization.
+
+Read more about use cases and migration paths at https://developers.redhat.com/products/mta/use-cases[Migration Toolkit for Applications^].
 
 == Congratulations!
 
