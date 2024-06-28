@@ -44,7 +44,7 @@ Update application with the following source code information.
 * Repository type - `Git`
 * Source Repository - `https://gitea.%SUBDOMAIN%/%USERID%/modern-app-dev.git`
 * Branch - `ocp-4.15`
-* Root path - `package-legacy`
+* Root path - `customers-tomcat-legacy`
 
 image::application-update-git.png[application-update-git]
 
@@ -96,7 +96,6 @@ Key in the following information in the repository page.
 * Source Repository - `https://gitea.%SUBDOMAIN%/%USERID%/modern-app-dev.git`
 * Branch - `ocp-4.15`
 * Root path - `customrules`
-* Associated credentials - `None`
 
 [NOTE]
 ====
