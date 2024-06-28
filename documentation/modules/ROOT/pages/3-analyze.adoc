@@ -165,15 +165,17 @@ image::mta-application-analysis-issues-ip-snippet.png[Issues]
 
 The analyzer has indeed found a static IP, but this comes from a properties file, so shouldn't be considered that much of an issue if for example the database, which is the asset being accessed here, remains outside of OpenShift in its original location. Close the modal window and the `Affected Files` drawer.
 
-Now expand the `Legacy configuration with io.konveyor.demo.config.ApplicationConfiguration` row. This corresponds to the triggering of the custom rule that looks for the usage of the custom corporate configuration library. Click on `View affected files` to learn more about how widespread the usage of that library is:
+Now expand the `File system - Java IO` row. This corresponds to the triggering of the custom rule that looks for the usage of the custom corporate configuration library. Click on `View affected files` to learn more about how widespread the usage of that library is:
 
 image::mta-application-analysis-issues-config-files.png[Issues]
+
+image::mta-application-analysis-issues-config-files-2.png[Issues]
 
 Only the `PersistenceConfig` class seems to be affected by the issue. Click on it to know more:
 
 image::mta-application-analysis-issues-config-snippet1.png[Issues]
 
-Looks like two occurrences of the same issue have been found in the file, click on the incident tabs from the modal window to alternate between them:
+Looks like *6* occurrences of the same issue have been found in the file, click on the `All incident` tabs from the modal window to confirm all the issues:
 
 image::mta-application-analysis-issues-config-snippet2.png[Issues]
 
