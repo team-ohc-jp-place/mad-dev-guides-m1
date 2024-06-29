@@ -78,7 +78,7 @@ When dealing with applications at scale, a more sophisticated way of grouping ap
 
 image::mta-archetypes.png[archetypes]
 
-Click on the _Summer Framework_ archetype to learn more about how archetypes work. This will open the _Archetype Profile_ side drawer that contains important information about the archetype:
+Click on the `Summer Framework` archetype to learn more about how archetypes work. This will open the _Archetype Profile_ side drawer that contains important information about the archetype:
 
 image::mta-archetypes-summer.png[archetypes]
 
@@ -88,11 +88,11 @@ This archetype has been modeled to cover all traditional Spring applications in 
 * Archetype tags are the tags that will be inherited by applications just for the fact of being associated to the current archetype. These are a way to store metadata about applications at scale. In this case we have associated a dedicated tag for the framework (_Summer Framework_) and information about the runtime (_Tomcat_).
 * Archetypes often refer to corporate architectures or frameworks that are maintained by some department or team inside the organization. Archetypes also allow to document who are relevant stakeholders associated to them. We can see that the _Summer Framework_ is being maintained by Sanaa Cantu, Lena Bentley and Olumide Themba, alongside the IT Management group.
 
-On the _Applications_ section of the _Archetype Profile_ drawer you can see a link that reads "2 applications". Click on it and you will navigate back to the _Application Inventory_ with preapplied filters to display all applications associated with the _Summer Framework_ archetype. Clicking on the Customers application reveals that it has been associated to the _Summer Framework_ archetype in the _Archetypes_ section from the _Application Profile_.
+On the _Applications_ section of the _Archetype Profile_ drawer you can see a link that reads `2 applications`. Click on it and you will navigate back to the _Application Inventory_ with preapplied filters to display all applications associated with the _Summer Framework_ archetype. Clicking on the Customers application reveals that it has been associated to the _Summer Framework_ archetype in the _Archetypes_ section from the _Application Profile_.
 
 image::mta-archetypes-inventory-customers.png[inventory]
 
-Given the association, the application should have inherited the Archetype tags from the Summer Framework archetype. Click on the _Tags_ tab from the _Application Profile_ and filter by Archetype. You should see the tags _Summer Framework_ and _Tomcat_.
+Given the association, the application should have inherited the Archetype tags from the Summer Framework archetype. Click on the `Tags` tab from the *Application Profile* and filter by Archetype. You should see the tags _Summer Framework_ and _Tomcat_.
 
 image::mta-archetypes-inventory-customers-tags.png[inventory]
 
@@ -104,7 +104,7 @@ The **Assessment module** provides a high level overview of a given application 
 
 All questionnaires are disabled by default on a brand new *MTA* install to allow users to define which questionnaires should be answered by the user to consider an application as _assessed_. **MTA 7** now includes https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/7.0/html-single/user_interface_guide/index#mta-custom-questionnaire_user-interface-guide[the possibility of authoring custom questionnaires by using a YAML syntax^], but we will stick to the default _Containerization_ questionnaire for this exercise.
 
-Click on the perspective selector on the left menu and select _Administration_. Once the perspective shifts, click on _Assessment Questionnaires_.
+Click on the *perspective selector* on the left menu and select `Administration`. Once the perspective shifts, click on `Assessment Questionnaires`.
 
 image::mta-questionnaires.png[questionnaires]
 
