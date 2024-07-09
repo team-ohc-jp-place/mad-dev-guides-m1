@@ -19,7 +19,7 @@ MTAの _分析_ は以下のような場面で活用できます。
 * ルールの拡張性およびカスタマイズ
 * ソースコードやアプリケーションアーカイブ(jar/war)に対する分析
 
-詳細については、 https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/6.0/html-single/introduction_to_the_migration_toolkit_for_applications/index#new-mta-features_getting-started-guide[MTA Features] をご参照ください。
+詳細については、 https://docs.redhat.com/en/documentation/migration_toolkit_for_applications/7.0/html-single/introduction_to_the_migration_toolkit_for_applications/index#new-mta-features_getting-started-guide[MTA Features] をご参照ください。
 
 == 3.1. MTAを使用した「Customers」アプリケーションの分析
 
@@ -43,8 +43,8 @@ image::mta-admin-git.png[admin git]
 
 * リポジトリタイプ - `Git`
 * ソースリポジトリ - `https://gitea.%SUBDOMAIN%/%USERID%/modern-app-dev.git`
-* ブランチ - `patch-postgres`
-* ルートパス - `package-legacy`
+* ブランチ - `ocp-4.15`
+* ルートパス - `customers-tomcat-legacy`
 
 image::application-update-git.png[application-update-git]
 
@@ -88,13 +88,14 @@ image::custom-rules.png[Custom rules]
 
 MTAのAnalysisでは、分析にカスタムルールエンジンが使用されます。さまざまなマイグレーションパスをサポートするために、多くのルールが最初から用意されていますが、必要に応じて、このルールを拡張することも可能です。カスタムルールは非常に簡単なXML構文で開発でき、分析の一部として使用できます。Globexで使用されていたと判明している、特定のライブラリの使用用途を検出し、そのライブラリを削除するために実行すべき変更を提案するカスタムルールを何種類か提供しています。
 
+Select `Repository` tab to refer to a custom rule (`corporate-framework-config.windup.xml`) in the *customrules* directory of your Gitea repository.
+
 リポジトリページで以下を入力してください。
 
 * リポジトリタイプ - `Git`
 * ソースリポジトリ - `https://gitea.%SUBDOMAIN%/%USERID%/modern-app-dev.git`
-* ブランチ - `patch-postgres`
+* ブランチ - `ocp-4.15`
 * ルートパス - `customrules`
-* 関連する認証情報 - `None`
 
 [NOTE]
 ====
@@ -111,69 +112,86 @@ image::fine-tune.png[Fine tuning]
 
 `Next` をクリックしてください
 
-最後に、分析のためのコンフィギュレーション概要を紹介します。
+最後に、分析のために設定した内容が表示されます。
 
 image::finish-project.png[Finish project]
 
-`Run` をクリックしてください
+`Run` をクリックしてください。 これによりMTAが OpenShift に分析ポッドを割り当てるためのリソースを要求している間、`Scheduled` ステータスになります。MTA は OpenShift のリソース管理機能を最大限に活用して、デプロイされているプロジェクトで使用可能なリソースを使用して分析をスケーリングします。アプリケーションごとに分析用のポッドが作成され(今回は1つ)、使用可能なリソースがあるとすぐに分析が実行されます。
 
-分析が開始され、終了するとレポートにアクセスできるようになります。分析が終了するまで、このビューを表示します。
-
-分析が終了したら、*Customers* アプリケーションを選択します。次に右側の *レポート* タブで `レポート` をクリックします。
+image::mta-application-analysis-scheduled.png[Analysis scheduled]
 
 [NOTE]
 ====
-分析を実行する前に、Windup用のコンテナイメージを取得する必要があるため、分析には数分かかる場合があります。
+分析を開始する前に分析エンジンのコンテナイメージを取得する必要があるため開始までに数分かかる場合があります。
 ====
 
-image::active-analysis.png[Active analysis]
+イメージがプルされ、分析ポッドが実行されると、分析のステータスが `In Progress` に変わります。クラスターのワークロードによってはアプリケーションの分析の完了に数分かかる場合があります。分析が終了すると、ステータスが `Completed` に変わります。
 
-== 3.2. レポートの理解
+== 3.2. 分析結果の理解
 
-ダッシュボードでは、アプリケーションのマイグレーション作業全体を俯瞰することができます。ここでは、以下のようにまとめられています。
+アプリケーション分析では、アプリケーション自体のさまざまな視点からの洞察が提供され、 _Application Profile_ から表示できます。分析が完了したら ( _Analysis_ カラムが Completedになってます)、アプリケーションをクリックして _Application Profile_ を開きます。
 
-* カテゴリーごとのインシデントとストーリーポイント
-* 提案された変更点の努力水準(LOE)ごとのインシデントとストーリーポイント
-* パッケージごとのインシデント
+=== 3.2.1. 労力(Effort)
 
-[NOTE]
-ストーリーポイントとは、アジャイルソフトウェア開発でよく使われる抽象的な指標で、機能や変更を実装するために必要な相対的な努力水準(LOE)を見積もるためのものです。Migration Toolkit for Applicationは、ストーリーポイントを用いて、特定のアプリケーション構成やアプリケーション全体のマイグレーションに必要な努力水準(LOE)を表示します。マイグレーション対象のアプリケーションの規模や複雑さによって、努力水準(LOE)は大きく異なります。
+MTA は、ソース コードで見つかった各問題の発生に対する個々の労力を集計することにより、特定のアプリケーションの移行に必要な労力を判断するのに役立ちます。労力はストーリーポイントで表されます。ストーリー ポイントは、機能または変更を実装するために必要な相対的な労力レベルを見積もるために、アジャイル ソフトウェア開発で一般的に使用される抽象的なメトリックです。Migration Toolkit for Application は、ストーリーポイントを使用して、特定のアプリケーション構成およびアプリケーション全体の移行に必要な労力レベルを表します。組織ごとにチームとスキルが異なるため、ストーリーポイントと作業時間を直接変換することはできませんが、アプリケーションの移行がどれだけ複雑になるかを理解するための比較方法を提供します。労力レベルは、移行するアプリケーションのサイズと複雑さによって大きく異なります。アプリケーションが分析されると、メトリックは_Application Inventory_ テーブルおよびアプリケーション プロファイルの  `Effort` カラムから使用できます。
 
-レポート作成の完成後、リンクをクリックしてレポートにアクセスします。 `customers-tomcat.war` アプリケーションをクリックしてください。
+image::mta-application-analysis-effort.png[Effort]
 
-image::report-view.png[View report]
+=== 3.2.2. テクノロジースタック(Technology Stack)
 
-レポートには、アプリケーションに関する動作環境、依存関係などの情報、そして最も重要な情報として、修正すべき問題が記載されています。
+分析出力から得られる最初の、そして最も直接的な洞察は、テクノロジースタックを識別し、それをタグとして  _Application Profile_  に関連付けることです。これにより、後でその情報を活用して、ポートフォリオ全体にアーキタイプを自動的に割り当てることができます。
 
-image::report-dashboard.png[report dashboard]
+`Customers` アプリケーションに関連付けられているタグを参照するには、 _Tags_ タブをクリックします。_Application Profile_ の概念を紹介したときに最初にこのタブの中を参照したときよりもはるかに多くのタグが表示されています。これらのタグは分析の実行中に識別できたテクノロジに基づいて、分析エンジンが自動的に適用しています。分析によって具体的に適用されたタグを確認するには、 _Filter by_ の下の `Source` フィルターをクリックして `Analysis` を選択します。
 
-`Issues` タブをクリックしてください。
+image::mta-application-analysis-tags.png[Analysis tags]
 
-`Issue` リストでは、ターゲットランタイム上でアプリケーションが正常に実行されるのを妨げる可能性のある問題のリストが表示されます。この例では、アプリケーションの場合、対処すべき必須事項がいくつかあることが分かります。
+=== 3.2.3. 課題(Issues)
 
-`Hard coded IP address` をクリックします。
+MTA の専門用語では `Issues` はアプリケーション内で見つかったアンチパターンで、特定のプラットフォームでアプリケーションを動かす場合に妨げとなる可能性のあるものを示します。MTA では、依存関係と同様に、アプリケーションごとに個別、またはポートフォリオ レベルでグローバルに問題を参照できるため、ユーザーは特定のアプリケーションに焦点を当てたり、アプリケーションポートフォリオ全体の傾向を特定したりできます。特定のアプリケーションの問題へのショートカットは _Application Profile_ の詳細タブにあります。
 
-表示されている問題を選択すると、対象の問題が検出された場所を確認し、解決方法のヒントを見ることができます。設定ファイルで、固定IPがいくつか使用されているようです。この設定はクラウド環境、コンテナ環境では、適さないものとなります。
+`Customers` アプリケーションをクリックして _Application Profile_ を開き、 `Issues` をクリックします。これにより、フィルターが事前に適用された `Issues` ビューから `Single Application` タブに移動し、 `Customers` アプリケーションのすべての問題が表示されます:
 
-image::report-hint.png[report hint]
- 
-`File system issue` をクリックしてください。
+image::mta-application-analysis-issues.png[Issues]
 
-この例では、コンフィグライブラリから送られてくるクラスで問題が検出されたようです。バイナリを分析しているため、依存関係も分析対象となります。
+一覧にはハードコードされた IP(`Hardcoded IP Address`)を使用しての直接アクセスが含まれており、これは評価中に判明した事実と一致しています。以前に指定したカスタム ルールもトリガーされたようです。問題をクリックすると、コード スニペット、外部情報へのリンク、影響を受けるファイルのリストなど、その問題に関する詳細情報が表示されます。
 
-image::report-hint-fs.png[report hint file system]
+`Issues` テーブルから `Hardcoded IP Address` の行を開き、 `Affected Files` をクリックします:
 
-`Legacy configuration issue` をクリックしてください。
+image::mta-application-analysis-issues-ip-files.png[Issues]
 
-この例では、カスタムルールがトリガーされ、ソースコードに問題が見つかったようです。このルールは、カスタム設定ライブラリの使用を検出し、それを修正するために必要なヒントが得られます。
+この問題の影響を受けるファイルのリストが表示されます。最初のファイルをクリックすると、モーダルウィンドウが開き、問題が見つかったコードスニペットや、その解決方法の説明など、さらに詳しい情報が表示されます:
 
-image::report-hint-custom.png[report hint custom rule]
+image::mta-application-analysis-issues-ip-snippet.png[Issues]
 
-`io.konveyor.demo.ordermanagement.config.PersistenceConfig` をクリックしてください。
+アナライザーは確かに静的IPアドレスを見つけましたが、これはプロパティファイルに記載されているため、たとえば、ここでアクセスされている資産であるデータベースが OpenShift外部の元の場所に残っている場合は大きな問題ではありません。モーダル ウィンドウと `Affected Files` のウィンドウを閉じます。
 
-image::report-code.png[report code]
+次に、 `File system - Java IO` の行を展開します。これは、カスタム企業構成ライブラリの使用状況を確認するカスタム ルールの実行結果によるものです。 `View affected files` をクリックすると、そのライブラリが度落雷の範囲で使用されているのか詳細が表示されます:
 
-クリック後、ソースコードのどこに問題があるのか、正確に把握できます。
+image::mta-application-analysis-issues-config-files.png[Issues]
+
+image::mta-application-analysis-issues-config-files-2.png[Issues]
+
+この問題を受けるのは `PersistenceConfig` クラスのみのようです。クリックして詳細を表示します:
+
+image::mta-application-analysis-issues-config-snippet1.png[Issues]
+
+ファイル内に同じ問題が *6* 件見つかったようです。 `All incident` モーダル ウィンドウのタブをクリックして、すべての問題を確認してください:
+
+image::mta-application-analysis-issues-config-snippet2.png[Issues]
+
+MTAがカスタム構成ライブラリの `ApplicationConfiguration` クラスが`PersistenceConfig`  クラス内で 2 回使用されていることを検出したことを意味します。使用方法のヒントで提供されるガイドラインに従って、これをより標準的なものに置き換える必要があります。これは、次のモジュールで取り上げる予定です。今のところはすべてのモーダルを閉じて _Application Inventory_ ビューに戻ります。
+
+=== 3.2.4. 依存関係(Dependencies)
+
+MTA の分析では、ポートフォリオ内のアプリケーションで使用される依存関係に関する詳細情報も収集されます。 `Customers` アプリケーションの依存関係の一覧を表示するには、 _Application Profile_ を開き、 `Details` タブの `Dependencies` リンクをクリックします。これにより、 `Customers` アプリケーションのフィルターが事前に適用された `Dependencies` ビューに移動します:
+
+image::mta-application-analysis-dependencies.png[Issues]
+
+依存関係をクリックすると、その依存関係に依存するポートフォリオ内の各アプリケーションとの関係について、次のような詳細情報が表示されます:
+
+* Version of the dependency Maven Central へのリンクを含む依存関係のバージョン。
+* Management relationship 依存関係が Maven などの依存関係マネージャーによって管理されているか、または単にバイナリに埋め込まれているかどうかを示します。
+* Relationship 依存関係が直接的か推移的かを定義します。
 
 == まとめ
 

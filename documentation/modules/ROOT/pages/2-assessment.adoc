@@ -9,7 +9,7 @@ Globexにおけるデジタルトランスフォーメーションおよびク�
 
 == 2.1. MTA Web Consoleへのアクセス
 
-既存アプリケーションの評価を実施するために、 https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/6.0/html-single/introduction_to_the_migration_toolkit_for_applications/index[Migration Toolkit for Applications (MTA)^] を使用します。本演習では、 _MTA_ を使用して、Red Hat Virtualization上のTomcatサーバーで動作する `Customers` サービスを評価します。
+既存アプリケーションの評価を実施するために、 https://docs.redhat.com/en/documentation/migration_toolkit_for_applications/7.0/html-single/introduction_to_the_migration_toolkit_for_applications/index[Migration Toolkit for Applications (MTA)^] を使用します。本演習では、 _MTA_ を使用して、Red Hat Virtualization上のTomcatサーバーで動作する `Customers` サービスを評価します。
 
 新たにブラウザを開き、 https://mta-mta-%USERID%.%SUBDOMAIN%[MTA Web Console^] にアクセスします。
 
@@ -32,7 +32,7 @@ image::application-inventory.png[application inventory]
 
 **Migration Waves management** ビジネス価値を提供するワークロードの小さな集合体です。 MTA のMigration Wavesは、指定したスケジュールで移行するアプリケーションをグループ化します。さらに、Migration Wavesでは、アプリケーションのリストを Jira 課題管理システムにエクスポートすることができます。これにより、Migration Wavesの各アプリケーションに対して、追跡用のJira課題が自動的に作成されます。
 
-詳細については、 https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/6.2/html/user_interface_guide/working-with-applications-in-the-ui#mta-web-creating-migration-waves_user-interface-guide[Creating migration waves^] 及び、 https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/6.2/html/user_interface_guide/working-with-applications-in-the-ui#mta-web-creating-jira-issues-for-migration-wave_user-interface-guide[Creating Jira issues for a migration wave^] を参照してください。
+詳細については、 https://docs.redhat.com/en/documentation/migration_toolkit_for_applications/7.0/html/user_interface_guide/working-with-applications-in-the-ui#mta-web-creating-migration-waves_user-interface-guide[Creating migration waves^] 及び、 https://docs.redhat.com/en/documentation/migration_toolkit_for_applications/7.0/html/user_interface_guide/working-with-applications-in-the-ui#mta-web-creating-jira-issues-for-migration-wave_user-interface-guide[Creating Jira issues for a migration wave^] を参照してください。
 
 == 2.2. Controls
 
@@ -62,96 +62,145 @@ image::mta-control-business-service.png[business service]
 
 続いて、レガシーアプリケーションに焦点をあててみます。 `Java` や `Tomcat`、 `PostgreSQL` などの、どのテクノロジーかを表し、各アプリケーションがどのカスタムアーキテクチャライブラリを使用しているかを識別できるカスタムタグタイプが既に追加されています。
 
-=== 2.3.1. 「Customers」のApplication Inventoryの確認
-
-左メニューの `Application inventory` から、「Customers」アプリケーションに対する `鉛筆` （EDIT）アイコンをクリックしてください。
+*Migration* パースペクティブの左メニューの `Application inventory` から、「Customers」アプリケーションに対する `tag` アイコンをクリックしてください。
 
 image::app-inventory-landing.png[app-inventory-landing]
 
-以下5つのタグが表示されます。
+以下10個のタグが表示されます。
 
-* PostgreSQL
-* Java
-* Tomcat
-* Corporate Custom Configuration Library
-* RHEL 8
+image::mta-customer-tags.png[mta-customer-tags]
 
 `x` ボタンをクリックしてください。
 
-=== 2.3.2. レガシーアプリケーション「Customers」へのアクセス
+== 2.4. アーキタイプ
 
-評価はアンケートによって進められ、アプリケーションごとにコンテナ化の適否を判断することを目的としています。 *テクノロジー*、 *アプリケーションライフサイクルマネジメント*、 *運用* などを含む、 *アプリケーションランドスケープ* のさまざまな領域をすべてカバーしています。このアンケートによって、コンテナでのアプリケーションの実行を妨げる可能性のある潜在的なリスクや、リスクを軽減するための特別な対応が必要な事項を、ツールが特定し提示します。
+複数の大規模なアプリケーションを扱う場合にポートフォリオを効果的に管理するには、グループ化するだけではなく洗練された方法が必要になる場合があります。 **アーキタイプ** はそれを行うためにタグ分類に基づいてアプリケーションを自動的に分類します。同時に、アーキタイプに関連付けられたアプリケーションは、追加のタグや評価データなどのメタデータの一部を継承します。
 
-あるステークホルダーチームでは、技術的な問題を特定するために、すでに `retail` サービスに対する評価を実施しています。しかしながら、初回の評価では設定ファイルの運用方法の質問に対して回答できませんでした。そのため、その時点では、回答を `Unknown` としていました。
+image::mta-archetypes.png[archetypes]
 
-これから「Customers」アプリケーション向けの `cross-cutting concerns` のセクションで適切な回答が選択できるように、 *2回目* の評価を実施します。
+アーキタイプの仕組みについて詳しく知るには、アーキタイプから `Summer Framework` をクリックします。アーキタイプに関する重要な情報を含む _Archetype Profile_ の画面が横に開きます:
 
-`Assess` をクリックしてください。
+image::mta-archetypes-summer.png[archetypes]
 
-image::app-inventory-access.png[app-inventory-access]
+このアーキタイプは、組織内のすべての伝統的な Spring アプリケーションをカバーするようにモデル化されており、それらの管理を一元化できます。アーキタイプで見つけることができるフィールドについて説明しましょう:
 
-*「This application has already been assessed. Do you want to continue?」* というメッセージが表示された場合、 `Continue` をクリックして評価を続行します。
+* 基準タグのすべてに一致するアプリケーションは、自動的にアーキタイプに関連付けられます。この場合、 _Spring_ 、 _Spring MVC_ 、および _Spring Data_ タグのすべてを持つアプリケーションは _Summer Framework_ アーキタイプに関連付けられます。 _Customers_ アプリケーションもこのケースです。
+* アーキタイプ タグは、現在のアーキタイプに関連付けられているアプリケーションに継承されるタグです。これらはアプリケーションに関するメタデータをまとめて保存する方法です。この例では、フレームワーク (_Summer Framework_) 専用のタグとランタイム (_Tomcat_) に関する情報を関連付けています。
+* アーキタイプは多くの場合で組織内の一部の部門またはチームによって維持されている自社アーキテクチャまたは自社フレームワークを示します。アーキタイプを使用することで関連する利害関係者が誰であるかを文書化することもできます。_Summer Framework_ は、IT 管理グループのほかに Sanaa Cantu、Lena Bentley、および Olumide Themba によってメンテナンスされていることがわかります。
 
-image::edit-assessment.png[edit-assessment]
+_Archetype Profile_ の横から表示の _Applications_ セクションに、`2 applications` というリンクがあります。これをクリックすると、_Summer Framework_ アーキタイプに関連付けられたすべてのアプリケーションを表示するフィルタが適用されている _Application Inventory_ に戻ります。Customers アプリケーションをクリックすると、_Application Profile_ から _Archetypes_ セクションの _Summer Framework_ アーキタイプに関連付けされていることがわかります。
 
-まず初めに、評価に関係するステークホルダー（ _Homer Simpson_ ）とステークホルダーグループ（ _Retail Management_ ）を選定します。初期値のまま進めてください。
+image::mta-archetypes-inventory-customers.png[inventory]
 
-image::select-stakeholder.png[select-stakeholder]
+関連づけられているのでアプリケーションは Summer Framework のアーキタイプからアーキタイプタグを継承しています。 *Application Profile* から `Tags` タブをクリックし、アーキタイプでフィルタリングしてください。 _Summer Framework_ と _Tomcat_ のタグが表示されます。
 
-`Next` をクリックしてください。
+image::mta-archetypes-inventory-customers-tags.png[inventory]
+
+== 2.5. Summer Frameworkのアーキタイプを評価する
+
+**Assessment module** は、アンケート機能を使って、与えられたアプリケーションやアーキタイプのハイレベルな概要を提供します。このツールには、 _コンテナ化_ アンケートが同梱されています。 _コンテナ化_ アンケートでは各アプリケーションのコンテナ化の適合性を判断します。これは、 *テクノロジー* 、 *アプリケーションのライフサイクル管理* 、 *運用* を含む、*アプリケーションを取り巻く状況* のすべての異なる領域をカバーします。このアンケートによって、コンテナでのアプリケーション実行を妨げる可能性のある潜在的なリスクや、リスクを軽減するための余分なステップが必要となる可能性のある潜在的なリスクをツールが特定し、提示することができます。
+
+=== 2.5.1. コンテナ化状況のアンケートの有効化
+
+*MTA* を新規にインストールしただけではすべてのアンケートがデフォルトで無効になっています。ユーザーはアプリケーションを評価済みと見なすためにどのアンケートに回答する必要があるかどうかを定義できます。 **MTA 7** では、https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/7.0/html-single/user_interface_guide/index#mta-custom-questionnaire_user-interface-guide[YAML 構文を使用してカスタムアンケートを作成できるようになりました^]が、この演習ではデフォルトの _コンテナ化_ アンケートを使用します。
+
+左のメニューから *パースペクティブの選択* をクリックして `Administration` を選びます。パースペクティブが変更されたら、 
+ `Assessment Questionnaires` をクリックします。
+
+image::mta-questionnaires.png[questionnaires]
+
+この表には利用可能なアンケートの一覧が表示され、質問の数とすべてのリスク レベルのさまざまなしきい値に関する情報が表示されます。 _Legacy Pathfinder_ アンケートには、今回使用しようとしているコンテナ化のアンケートが含まれているため、 _Required_ 列のスイッチをクリックして有効にします。
+
+image::mta-questionnaires-enabled.png[questionnaires]
+
+つまり、この MTA インスタンス上ではアプリケーション レベルまたはアーキタイプ レベルのいずれかで _Legacy Pathfinder_ (_コンテナ化_) アンケートに回答すると評価済みとみなされます。
+
+左のメニューから *パースペクティブの選択* をクリックして _Migration_ を選択し、 _Application Inventory_ に戻ります。
+
+image::mta-intentory-assessed.png[questionnaires]
+
+_Customers_ アプリケーションを含むいくつかのアプリケーションの評価が完了したように見えます。これは、一部のアプリケーションがこの MTA インスタンスですでに評価されているためです。
+
+=== 2.5.2. Summer Framework アーキタイプの評価を完了する
+
+ステークホルダーチームですでに _Summer Framework_ アーキタイプを評価して技術的な問題を特定しています。ただし、最初の評価では設定ファイルの質問に答えることができませんでした。そのため、その時点での回答を `Unknown` としてそのまま残しています。
+
+今日は、 *2回目* の評価を行い、_Summer Framework_ アーキタイプの `cross-cutting concerns(横断的な懸念事項)` セクションで適切な回答を選択します。
+
+左側のメニューで _Archetypes_ オプションをクリックし、次に _Archetypes_ アーキタイプのケバブ メニュー (縦に並んだ 3 つのドット) をクリックして、 _Assess_ オプションを選択します。
+
+image::mta-assessment-summer.png[archetypes]
+
+_Summer Framework_ アーキタイプで利用可能なアンケートの一覧を含むビューに遷移します。評価はすでに完了しているため、アンケートを再実施するか、以前の結果を表示するかのオプションが表示されます。
+
+image::mta-assessment-summer-options.png[assessment]
+
+_Retake_ をクリックします。
+
+アンケートは、有意義な会話をするための台本と考えることができます。その会話には複数の関係者が関与する可能性があるため、後で連絡を取って説明をする必要がでてくる場合に備えて文書化することが重要です。
+
+image::mta-assessment-stakeholders.png[assessment]
+
+この会話には、IT 管理チームのほか、Brendon Hayes、Dante Leblanc、Hanna Miriam が参加していることがわかります。アンケートを開始するために `Next` をクリックしてください。
 
 [NOTE]
 ====
-`Details`、 `Dependencies`、 `Observability` などのアプリケーションアセスメント項目ごとに、初期アセスメントでの旧回答を確認します。回答を変更する必要はありませんが、「アプリケーション横断的な懸念事項(Application cross-cutting concerns)」セクションに入るまで、 `Next` ボタンをクリックし続けてください。
+`Details` や `Dependencies`、`Observability` セクションでの初回での評価の回答を確認します。回答を変更する必要はありませんが、 `Application cross-cutting concerns` セクションに入るまで `Next` ボタンをクリックし続けます。 
 ====
 
-image::app-details.png[app-details]
+image::mta-assessment-app-details.png[app-details]
 
-=== 2.3.3. アプリケーションの横断的な懸念事項
+_Application cross-cutting concerns_ セクションに到達したら  *How is the application configured?(アプリケーションはどのように構成されていますか?)* という質問に対して次の回答を選択します。チームはついに _Summer Framework_ アーキタイプのアプリケーションが現在、異なるフォルダー/ディレクトリで複数の構成ファイルを使用していることを突き止めたので、それに則って回答します:
 
-*「How is the application configured?」* という質問に対して、以下回答を選択してください。このチームは、「Customers」アプリケーションが現状、複数の設定ファイルが異なるフォルダ/ディレクトリに存在していることを突き止めたので、その状況を回答します。
+* *Question* - How is the application configured? (アプリケーションはどのように構成されていますか?)
+* *Answer* - `Multiple configuration files in multiple file system locations` (ファイルシステム上の複数の場所に設定ファイルが散在しています)
 
-* *Question* - How is the application configured?
-* *Answer* - `Multiple configuration files in multiple file system locations`
-
-image::app-cross-cutting-concerns.png[app-cross-cutting-concerns]
+image::mta-assessment-app-cross-cutting-concerns.png[app-cross-cutting-concerns]
 
 「Save and review」をクリックしてください。
 
-== 2.4. アプリケーションの確認
+== 2.6. アプリケーションの確認
 
-「Save」をクリック後、レビュー画面が表示されます。この画面では、アセスメントにおいてどのようなリスクが含まれているかを確認でき、そのリスクに基づいてどのような移行戦略をとるかの意志決定ができます。
+「Save」をクリック後、レビュー画面が表示されます。この画面では、評価においてどのようなリスクが含まれているかを確認でき、そのリスクに基づいてどのような移行戦略をとるかの意志決定ができます。
 
-image::review.png[review]
+image::mta-review.png[review]
 
-画面を下にスクロールすると、該当するリスクが表示されます。このレガシーアプリケーションは、クラウドに向かないスタティック（固定）ディスカバリーメカニズムを使用しています。これは、古典的なプラットフォームに由来しており、 *固定IP* を介してデータベースにアクセスするという当然のことを行っております。
+私たちの評価では、MTA は中程度および高いリスクをいくつか発見しました。リスクの一覧で確認できます。 _Summer Framework_ アーキタイプは、クラウドフレンドリーではない静的 (固定) 検出メカニズムを使用しています。従来のプラットフォームでは *静的IPアドレス* を介してデータベースにアクセスする必要があったためです。
 
-image::review-high-risk.png[review-high-risk]
+前述のように、このアーキタイプは、ファイルシステム上の複数のパスから構成をロードするカスタム構成ライブラリも使用しています。これは明らかにクラウドへのデプロイメントのアンチパターンであるため、関連するアプリケーションでそのライブラリが使用されている場所を見つけて、よりクラウドに適したアプローチに置き換える必要があります。
 
-アプリケーションをクラウドに適応させるには、ソースコードの変更が必要であることが判明したため、その戦略を `Refactor` とします。
+image::mta-review-risks.png[review-risks]
+
+このアーキタイプに関連付けられたアプリケーションを適応させるにはソース コードにいくつかの変更が必要であることがわかったので、戦略を `Refactor` と決定できます。
+
+構成ライブラリのみを置き換える必要があると考えているため、必要な労力は `Small`であると予想されます。
 
 * Proposed action: `Refactor`
 * Effort estimate: `Small`
 
-このアーキテクチャの中で重要なアプリケーションに対する対応のため、重要度を `10`、優先度を `9` に設定します。
+_Summer Framework_ アーキタイプはビジネスにとって重要なアプリケーションを構築するために使用されているため、重要度を `10` 、優先度を `9` に設定します。
 
 * Business criticality: `10`
 * Work priority: `9`
 
 設定後、「Submit Review」をクリックしてください。
 
-image::submit-review.png[submit-review]
+image::mta-submit-review.png[submit-review]
 
-この時点で、 `アプリケーションの横断的な懸念事項` セクションを更新して2回目の評価が完了しています。また、外部設定への参照や依存関係といった新たな `高` リスクも特定されました。
+前述のように、アーキタイプに関連付けられたアプリケーションは、 **評価やレビューなど ** プロパティの一部を継承します。左側のメニューで _Application Inventory_ オプションをクリックし、次に _Customers_ アプリケーションをクリックします。アプリケーション プロファイルの _Archetypes_ セクションで、関連付けられているアーキタイプ (_Summer Framework_) が評価およびレビュー済みであることがわかります。また、 _Customers_ アプリケーションの _Assessment_ 列と _Review_ 列には _Completed_ ステータスが表示されます。
 
-image::complete-review.png[complete-review]
+image::mta-complete-review.png[complete-review]
 
-左メニューの `Report` をクリックしてください。クリックすると _Current landscape_、 _Adoption candidate distribution_、 _Suggested adoption plan_、 _Identified risks_ などのレポートの詳細を確認できます。
+次に、アプリケーション プロファイルから _Review_ タブをクリックします。ご覧のとおり、 _Summer Framework_ アーキタイプのレビューで割り当てた値は、 _Customers_ アプリケーションに継承されています。
 
-image::report-review.png[report-review]
+image::mta-complete-review-values.png[complete-review]
+
+ポートフォリオ全体の評価データの集計ビューを表示するには、左側のメニューの `Report` オプションに移動します。
+
+image::mta-report-review.png[report-review]
 
 == おめでとうございます！
 
-以上で、現在のアプリケーションのポートフォリオを評価することでモダナイゼーションへ向けたプロセスを無事に開始し、次のステップ「モダナイゼーションの一環としてアプリケーション分析とコード修正の実施」にて検討するべき問題やリスクの特定が完了しました。
+以上で、_Summer Framework_ アーキタイプを評価することでモダナイゼーションへ向けたプロセスを無事に開始し、次のステップ「モダナイゼーションの一環としてアプリケーション分析とコード修正の実施」にて検討するべき問題やリスクの特定が完了しました。
 
 ユースケースとマイグレーションパスについての詳細は、 https://developers.redhat.com/products/mta/use-cases[Migration Toolkit for Applications^]を参照ください。
