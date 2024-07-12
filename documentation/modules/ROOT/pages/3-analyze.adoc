@@ -3,7 +3,7 @@
 
 == 本演習の目標
 
-前コースの *アセスメント* 演習で学習したように、モダナイゼーションプロジェクトの時間と労力を見積もるために、モダナイゼーションの問題が発生するソースコードの行を特定という観点で、レガシーアプリケーションを分析する必要があります。
+前コースの *アセスメント* 演習で学習したように、モダナイゼーションプロジェクトの時間と労力を見積もるために、モダナイゼーションの問題が発生するソースコードの行を特定するという観点で、レガシーアプリケーションを分析する必要があります。
  
 本演習では、MTAの `分析` 機能を使用してソースコードと設定ファイルに対してスキャンを実施し、 _Customers_ のアプリケーションを分析します。そして分析実施後、分析レポートを確認し、実際にコード修正に取り掛かります。
 
@@ -19,7 +19,7 @@ MTAの _分析_ は以下のような場面で活用できます。
 * ルールの拡張性およびカスタマイズ
 * ソースコードやアプリケーションアーカイブ(jar/war)に対する分析
 
-詳細については、 https://docs.redhat.com/en/documentation/migration_toolkit_for_applications/7.0/html-single/introduction_to_the_migration_toolkit_for_applications/index#new-mta-features_getting-started-guide[MTA Features] をご参照ください。
+詳細については、 https://docs.redhat.com/en/documentation/migration_toolkit_for_applications/7.0/html-single/introduction_to_the_migration_toolkit_for_applications/index#new-mta-features_getting-started-guide[MTA Features^] をご参照ください。
 
 == 3.1. MTAを使用した「Customers」アプリケーションの分析
 
