@@ -88,7 +88,7 @@ image::mta-archetypes-summer.png[archetypes]
 * アーキタイプ タグは、現在のアーキタイプに関連付けられているアプリケーションに継承されるタグです。これらはアプリケーションに関するメタデータをまとめて保存する方法です。この例では、フレームワーク (_Summer Framework_) 専用のタグとランタイム (_Tomcat_) に関する情報を関連付けています。
 * アーキタイプは多くの場合で組織内の一部の部門またはチームによって維持されている自社アーキテクチャまたは自社フレームワークを示します。アーキタイプを使用することで関連する利害関係者が誰であるかを文書化することもできます。_Summer Framework_ は、IT 管理グループのほかに Sanaa Cantu、Lena Bentley、および Olumide Themba によってメンテナンスされていることがわかります。
 
-_Archetype Profile_ の横から表示の _Applications_ セクションに、`2 applications` というリンクがあります。これをクリックすると、_Summer Framework_ アーキタイプに関連付けられたすべてのアプリケーションを表示するフィルタが適用されている _Application Inventory_ に戻ります。Customers アプリケーションをクリックすると、_Application Profile_ から _Archetypes_ セクションの _Summer Framework_ アーキタイプに関連付けされていることがわかります。
+_Archetype details_ の _Applications_ セクションに、`2 applications` というリンクがあります。これをクリックすると、_Summer Framework_ アーキタイプに関連付けられたすべてのアプリケーションを表示するフィルタが適用されている _Application Inventory_ に戻ります。Customers アプリケーションをクリックすると、_Application Profile_ から _Archetypes_ セクションの _Summer Framework_ アーキタイプに関連付けされていることがわかります。
 
 image::mta-archetypes-inventory-customers.png[inventory]
 
