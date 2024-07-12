@@ -195,7 +195,7 @@ image::mta-complete-review.png[complete-review]
 
 image::mta-complete-review-values.png[complete-review]
 
-ポートフォリオ全体の評価データの集計ビューを表示するには、左側のメニューの `Report` オプションに移動します。
+ポートフォリオ全体の評価データの集計ビューを表示するには、左側のメニューの `Reports` オプションに移動します。
 
 image::mta-report-review.png[report-review]
 
