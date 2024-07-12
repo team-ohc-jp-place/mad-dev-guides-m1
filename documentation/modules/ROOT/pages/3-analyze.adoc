@@ -68,7 +68,7 @@ image::add-applications.png[Add applications]
 
 本演習では、移行先はLinuxコンテナのため、Windowsファイルシステムのパスなど、コンテナやLinuxとの不整合の問題を避けるために、健全性チェックを行います。また、プロプライエタリなJDKディストリビューションへの依存性の排除を検討するため、OpenJDKをターゲットとして選択します。
 
-ターゲットとして `Containers`, `Linux`, `OpenJDK` をクリックしてください。
+ターゲットとして `Containerization`, `Linux`, `OpenJDK` をクリックしてください。
 
 image::configure-analysis-checked.png[Configure Analysis]
 
