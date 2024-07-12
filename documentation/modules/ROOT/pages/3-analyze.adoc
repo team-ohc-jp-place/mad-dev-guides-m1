@@ -116,7 +116,7 @@ image::fine-tune.png[Fine tuning]
 
 image::finish-project.png[Finish project]
 
-`Run` をクリックしてください。 これによりMTAが OpenShift に分析ポッドを割り当てるためのリソースを要求している間、`Scheduled` ステータスになります。MTA は OpenShift のリソース管理機能を最大限に活用して、デプロイされているプロジェクトで使用可能なリソースを使用して分析をスケーリングします。アプリケーションごとに分析用のポッドが作成され(今回は1つ)、使用可能なリソースがあるとすぐに分析が実行されます。
+`Run` をクリックしてください。 MTAが OpenShift に分析ポッドを割り当てるためのリソースを要求している間、`Scheduled` ステータスになっています。MTA は OpenShift のリソース管理機能を最大限に活用して、デプロイされているプロジェクトで使用可能なリソースを使用して分析をスケーリングします。アプリケーションごとに分析用のポッドが作成され(今回は1つ)、使用可能なリソースが割り当てられたら即座に分析が実行されます。
 
 image::mta-application-analysis-scheduled.png[Analysis scheduled]
 
