@@ -119,7 +119,7 @@ image::mta-questionnaires-enabled.png[questionnaires]
 
 image::mta-intentory-assessed.png[questionnaires]
 
-_Customers_ アプリケーションを含むいくつかのアプリケーションの評価が完了したように見えます。これは、一部のアプリケーションがこの MTA インスタンスですでに評価されているためです。
+_Customers_ アプリケーションを含むいくつかのアプリケーションの評価が完了しているように見えます。これは、一部のアプリケーションがこの MTA インスタンスですでに評価されているためです。
 
 === 2.5.2. Summer Framework アーキタイプの評価を完了する
 
