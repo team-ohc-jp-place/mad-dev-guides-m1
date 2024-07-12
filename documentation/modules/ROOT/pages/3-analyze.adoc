@@ -165,7 +165,7 @@ image::mta-application-analysis-issues-ip-snippet.png[Issues]
 
 アナライザーは確かに静的IPアドレスを見つけましたが、これはプロパティファイルに記載されているため、たとえば、ここでアクセスされている資産であるデータベースが OpenShift外部の元の場所に残っている場合は大きな問題ではありません。モーダル ウィンドウと `Affected Files` のウィンドウを閉じます。
 
-次に、 `File system - Java IO` の行を展開します。これは、カスタム企業構成ライブラリの使用状況を確認するカスタム ルールの実行結果によるものです。 `View affected files` をクリックすると、そのライブラリが度落雷の範囲で使用されているのか詳細が表示されます:
+次に、 `File system - Java IO` の行を展開します。これは、カスタム企業構成ライブラリの使用状況を確認するカスタム ルールの実行結果によるものです。 `View affected files` をクリックすると、そのライブラリがどのように使用されているのか詳細が表示されます:
 
 image::mta-application-analysis-issues-config-files.png[Issues]
 
