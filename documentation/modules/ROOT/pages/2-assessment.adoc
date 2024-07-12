@@ -78,7 +78,7 @@ image::mta-customer-tags.png[mta-customer-tags]
 
 image::mta-archetypes.png[archetypes]
 
-アーキタイプの仕組みについて詳しく知るには、アーキタイプから `Summer Framework` をクリックします。アーキタイプに関する重要な情報を含む _Archetype Profile_ の画面が横に開きます:
+アーキタイプの仕組みについて詳しく知るには、メニューの 'Archetypes' から `Summer Framework` をクリックします。アーキタイプに関する重要な情報を含む _Archetype details_ の画面が横に開きます:
 
 image::mta-archetypes-summer.png[archetypes]
 
