@@ -129,7 +129,7 @@ image::mta-application-analysis-scheduled.png[Analysis scheduled]
 
 == 3.2. 分析結果の理解
 
-アプリケーション分析では、アプリケーション自体のさまざまな視点からの洞察が提供され、 _Application Profile_ から表示できます。分析が完了したら ( _Analysis_ カラムが Completedになってます)、アプリケーションをクリックして _Application Profile_ を開きます。
+アプリケーション分析では、アプリケーション自体のさまざまな視点からの洞察が提供され、 _Application Profile_ から表示できます。分析が完了したら ( _Analysis_ カラムが Completedになってます)、アプリケーションをクリックして _Application Profile_ を開きます。(右に表示される詳細画面)
 
 === 3.2.1. 労力(Effort)
 
