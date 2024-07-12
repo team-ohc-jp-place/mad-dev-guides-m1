@@ -175,7 +175,7 @@ image::mta-application-analysis-issues-config-files-2.png[Issues]
 
 image::mta-application-analysis-issues-config-snippet1.png[Issues]
 
-ファイル内に同じ問題が *6* 件見つかったようです。 `All incident` モーダル ウィンドウのタブをクリックして、すべての問題を確認してください:
+ファイル内に同じ問題が *6* 件見つかったようです。モーダル ウィンドウの `All incident` タブをクリックして、すべての問題を確認してください:
 
 image::mta-application-analysis-issues-config-snippet2.png[Issues]
 
