@@ -102,7 +102,7 @@ image::mta-archetypes-inventory-customers-tags.png[inventory]
 
 === 2.5.1. コンテナ化状況のアンケートの有効化
 
-*MTA* を新規にインストールしただけではすべてのアンケートがデフォルトで無効になっています。ユーザーはアプリケーションを評価済みと見なすためにどのアンケートに回答する必要があるかどうかを定義できます。 **MTA 7** では、https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/7.0/html-single/user_interface_guide/index#mta-custom-questionnaire_user-interface-guide[YAML 構文を使用してカスタムアンケートを作成できるようになりました^]が、この演習ではデフォルトの _コンテナ化_ アンケートを使用します。
+*MTA* を新規にインストールしただけではすべてのアンケートがデフォルトで無効になっています。ユーザーはアプリケーションを評価済みと見なすためにどのアンケートに回答する必要があるかどうかを定義できます。 **MTA 7** では、 https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/7.0/html-single/user_interface_guide/index#mta-custom-questionnaire_user-interface-guide[YAML 構文を使用してカスタムアンケートを作成できるようになりました^] が、この演習ではデフォルトの _コンテナ化_ アンケートを使用します。
 
 左のメニューから *パースペクティブの選択* をクリックして `Administration` を選びます。パースペクティブが変更されたら、 
  `Assessment Questionnaires` をクリックします。
