@@ -11,7 +11,7 @@ Globexにおけるデジタルトランスフォーメーションおよびク�
 
 既存アプリケーションの評価を実施するために、 https://docs.redhat.com/en/documentation/migration_toolkit_for_applications/7.0/html-single/introduction_to_the_migration_toolkit_for_applications/index[Migration Toolkit for Applications (MTA)^] を使用します。本演習では、 _MTA_ を使用して、Red Hat Virtualization上のTomcatサーバーで動作する `Customers` サービスを評価します。
 
-新たにブラウザを開き、 https://mta-mta-%USERID%.%SUBDOMAIN%[MTA Web Console^] にアクセスします。
+https://mta-mta-%USERID%.%SUBDOMAIN%[MTA Web Console^] にアクセスします。
 
 アクセス後、 *Customers*、 *Orders*、 *Inventory* など、既存アプリケーションのインベントリ情報が表示されます。
 
