@@ -17,7 +17,7 @@ https://mta-mta-%USERID%.%SUBDOMAIN%[MTA Web Console^] にアクセスします�
 
 image::application-inventory.png[application inventory]
 
-**MTAのApplication Inventory** では、 https://github.com/konveyor/tackle-pathfinder[Tackle Pathfinder^] による評価と https://github.com/windup/[Windup^] による解析を行いたい対象のアプリケーションを選択します。ここには主に以下4つの機能があります。
+**MTAのApplication Inventory** では、 https://github.com/konveyor/tackle-pathfinder[Tackle Pathfinder^] による評価と https://github.com/windup/[Windup^] による解析を行いたいアプリケーションを選択します。ここには主に以下4つの機能があります。
 
 * アプリケーションのポートフォリオの維持
 * アプリケーションと、それをサポートするビジネスサービスのリンク
