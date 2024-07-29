@@ -92,7 +92,7 @@ _Archetype details_ の _Applications_ セクションに、`2 applications` と
 
 image::mta-archetypes-inventory-customers.png[inventory]
 
-関連づけられているのでアプリケーションは Summer Framework のアーキタイプからアーキタイプタグを継承しています。 *Application Profile* から `Tags` タブをクリックし、`Archetype` でフィルタリングしてください。 _Summer Framework_ と _Tomcat_ のタグが表示されます。
+アプリケーションは Summer Framework のアーキタイプからアーキタイプのタグを継承しています。 *Application Profile* から `Tags` タブをクリックし、アーキタイプでフィルタリングしてください。 _Summer Framework_ と _Tomcat_ のタグが表示されます。
 
 image::mta-archetypes-inventory-customers-tags.png[inventory]
 
